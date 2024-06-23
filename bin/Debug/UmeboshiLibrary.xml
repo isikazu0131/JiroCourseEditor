@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UmeboshiLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:UmeboshiLibrary.UmeboshiString">
+            <summary>
+            文字列に関するクラス
+            </summary>
+        </member>
+        <member name="M:UmeboshiLibrary.UmeboshiString.Encircle(System.String,System.Char,System.Char)">
+            <summary>
+            囲まれた文字列を返すよ
+            </summary>
+            <param name="line"></param>
+            <param name="startchar"></param>
+            <param name="endchar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UmeboshiLibrary.UmeboshiString.CutToEnd(System.String,System.String)">
+            <summary>
+            指定した文字列以降の文字列を返します
+            </summary>
+            <param name="line"></param>
+            <param name="selectstring"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UmeboshiLibrary.UmeboshiString.CutToEnd(System.String,System.Char)">
+            <summary>
+            指定された文字以降の文字列を返します
+            </summary>
+            <param name="line"></param>
+            <param name="selectchar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UmeboshiLibrary.UmeboshiString.CutToStart(System.String,System.String)">
+            <summary>
+            指定した文字列以前の文字列を返します
+            </summary>
+            <param name="line"></param>
+            <param name="selectstring"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UmeboshiLibrary.UmeboshiString.CutToStart(System.String,System.Char)">
+            <summary>
+            指定した文字以前の文字列を返します
+            </summary>
+            <param name="line"></param>
+            <param name="selectchar"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
