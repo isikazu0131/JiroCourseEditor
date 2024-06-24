@@ -25,7 +25,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -166,4 +166,10 @@
     <None Include="Resources\ng.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "$(TargetDir)dll" mkdir "$(TargetDir)dll"
+move  /Y "$(TargetDir)*.dll" "$(TargetDir)dll"
+move /Y "$(TargetDir)*.xml" "$(TargetDir)dll"
+move /Y "$(TargetDir)*pdb" "$(TargetDir)dll"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

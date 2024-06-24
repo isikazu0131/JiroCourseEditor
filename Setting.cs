@@ -35,7 +35,7 @@ namespace JiroCourseEditor {
             Setting setting = new Setting();
             // 設定フォルダがなければ、一旦フォルダだけ作って設定クラスのインスタンスを生成し返す
             if (!Directory.Exists(Constants.FileName.SettingFolder)) {
-                Directory.CreateDirectory(Constants.FileName.SettingMainFile);
+                Directory.CreateDirectory(Constants.FileName.SettingFolder);
                 return setting;
             }
             if (File.Exists(Constants.FileName.SettingMainFile)) {
