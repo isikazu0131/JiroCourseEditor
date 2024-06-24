@@ -59,6 +59,11 @@ namespace JiroCourseEditor {
         private bool FlagThresholdEdit = false;
 
         /// <summary>
+        /// パック名TextBox編集用フラグ
+        /// </summary>
+        private bool FlagTbPackNameEdit = false;
+
+        /// <summary>
         /// 現在のファイルが保存されているか
         /// </summary>
         private bool isSaved = true;
@@ -163,6 +168,11 @@ namespace JiroCourseEditor {
                     LbTotalPlayTime.Text = ToMinSec(nowTJP.TJCs.Sum(x => x.TotalOggTime()));
                     LbPackSize.Text = (nowTJP.TJCs.Sum(x => (double)x.GetTJAsSize()) / 1024 / 1024).ToString("0.00") + " MB";
 
+                    // 内部から変更するためTbPackName変更メソッドは通らない
+                    FlagTbPackNameEdit = true;
+                    TbPackName.Text = nowTJP.Name;
+                    FlagTbPackNameEdit = false;
+
                     FormTitleChange();
                     break;
                 // コース名選択時
@@ -212,6 +222,7 @@ namespace JiroCourseEditor {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TbPackName_TextChanged(object sender, EventArgs e) {
+            if (FlagTbPackNameEdit == true) return;
             var PackNode = TrPack.SelectedNode;
             if (PackNode != null) {
                 PackNode.Text = TbPackName.Text;
@@ -248,36 +259,36 @@ namespace JiroCourseEditor {
         private int GetNumForCourseNum() {
             // コース名を取得しておく
             string CName = TbCourseName.Text;
-            if (CName.Contains("30") || CName.Contains("三十") || CName.Contains("参拾") || CName.Contains("参拾")) return 30;
-            if (CName.Contains("29") || CName.Contains("二十九") || CName.Contains("弐拾九") || CName.Contains("弐拾玖")) return 29;
-            if (CName.Contains("28") || CName.Contains("二十八") || CName.Contains("弐拾八") || CName.Contains("弐拾捌")) return 28;
-            if (CName.Contains("27") || CName.Contains("二十七") || CName.Contains("弐拾七") || CName.Contains("弐拾漆")) return 27;
-            if (CName.Contains("26") || CName.Contains("二十六") || CName.Contains("弐拾六") || CName.Contains("弐拾陸")) return 26;
-            if (CName.Contains("25") || CName.Contains("二十五") || CName.Contains("弐拾五") || CName.Contains("弐拾伍")) return 25;
-            if (CName.Contains("24") || CName.Contains("二十四") || CName.Contains("弐拾四") || CName.Contains("弐拾肆")) return 24;
-            if (CName.Contains("23") || CName.Contains("二十三") || CName.Contains("弐拾参") || CName.Contains("弐拾参")) return 23;
-            if (CName.Contains("22") || CName.Contains("二十二") || CName.Contains("弐拾弐") || CName.Contains("弐拾弐")) return 22;
-            if (CName.Contains("21") || CName.Contains("二十一") || CName.Contains("弐拾壱") || CName.Contains("弐拾壱")) return 21;
-            if (CName.Contains("20") || CName.Contains("二十") || CName.Contains("弐拾") || CName.Contains("弐拾")) return 20;
-            if (CName.Contains("19") || CName.Contains("十九") || CName.Contains("拾九") || CName.Contains("拾玖")) return 19;
-            if (CName.Contains("18") || CName.Contains("十八") || CName.Contains("拾八") || CName.Contains("拾捌")) return 18;
-            if (CName.Contains("17") || CName.Contains("十七") || CName.Contains("拾七") || CName.Contains("拾漆")) return 17;
-            if (CName.Contains("16") || CName.Contains("十六") || CName.Contains("拾六") || CName.Contains("拾陸")) return 16;
-            if (CName.Contains("15") || CName.Contains("十五") || CName.Contains("拾五") || CName.Contains("拾伍")) return 15;
-            if (CName.Contains("14") || CName.Contains("十四") || CName.Contains("拾四") || CName.Contains("拾肆") || CName.Contains("達人")) return 14;
-            if (CName.Contains("13") || CName.Contains("十三") || CName.Contains("拾参") || CName.Contains("超人")) return 13;
-            if (CName.Contains("12") || CName.Contains("十二") || CName.Contains("拾弐") || CName.Contains("名人")) return 12;
-            if (CName.Contains("11") || CName.Contains("十一") || CName.Contains("拾壱") || CName.Contains("玄人")) return 11;
-            if (CName.Contains("10") || CName.Contains("十") || CName.Contains("拾") || CName.Contains("拾")) return 10;
-            if (CName.Contains("9") || CName.Contains("九") || CName.Contains("九") || CName.Contains("玖")) return 9;
-            if (CName.Contains("8") || CName.Contains("八") || CName.Contains("八") || CName.Contains("捌")) return 8;
-            if (CName.Contains("7") || CName.Contains("七") || CName.Contains("七") || CName.Contains("漆")) return 7;
-            if (CName.Contains("6") || CName.Contains("六") || CName.Contains("六") || CName.Contains("陸")) return 6;
-            if (CName.Contains("5") || CName.Contains("五") || CName.Contains("五") || CName.Contains("伍")) return 5;
-            if (CName.Contains("4") || CName.Contains("四") || CName.Contains("四") || CName.Contains("肆")) return 4;
-            if (CName.Contains("3") || CName.Contains("三") || CName.Contains("参") || CName.Contains("参")) return 3;
-            if (CName.Contains("2") || CName.Contains("二") || CName.Contains("弐") || CName.Contains("弐")) return 2;
-            if (CName.Contains("1") || CName.Contains("一") || CName.Contains("壱") || CName.Contains("初")) return 1;
+            if (CName.Contains("30") || CName.Contains("３０") || CName.Contains("三十")   || CName.Contains("参拾")   || CName.Contains("参拾")) return 30;
+            if (CName.Contains("29") || CName.Contains("２９") || CName.Contains("二十九") || CName.Contains("弐拾九") || CName.Contains("弐拾玖")) return 29;
+            if (CName.Contains("28") || CName.Contains("２８") || CName.Contains("二十八") || CName.Contains("弐拾八") || CName.Contains("弐拾捌")) return 28;
+            if (CName.Contains("27") || CName.Contains("２７") || CName.Contains("二十七") || CName.Contains("弐拾七") || CName.Contains("弐拾漆")) return 27;
+            if (CName.Contains("26") || CName.Contains("２６") || CName.Contains("二十六") || CName.Contains("弐拾六") || CName.Contains("弐拾陸")) return 26;
+            if (CName.Contains("25") || CName.Contains("２５") || CName.Contains("二十五") || CName.Contains("弐拾五") || CName.Contains("弐拾伍")) return 25;
+            if (CName.Contains("24") || CName.Contains("２４") || CName.Contains("二十四") || CName.Contains("弐拾四") || CName.Contains("弐拾肆")) return 24;
+            if (CName.Contains("23") || CName.Contains("２３") || CName.Contains("二十三") || CName.Contains("弐拾参") || CName.Contains("弐拾参")) return 23;
+            if (CName.Contains("22") || CName.Contains("２２") || CName.Contains("二十二") || CName.Contains("弐拾弐") || CName.Contains("弐拾弐")) return 22;
+            if (CName.Contains("21") || CName.Contains("２１") || CName.Contains("二十一") || CName.Contains("弐拾壱") || CName.Contains("弐拾壱")) return 21;
+            if (CName.Contains("20") || CName.Contains("２０") || CName.Contains("二十")   || CName.Contains("弐拾")   || CName.Contains("弐拾")) return 20;
+            if (CName.Contains("19") || CName.Contains("１９") || CName.Contains("十九")   || CName.Contains("拾九")   || CName.Contains("拾玖")) return 19;
+            if (CName.Contains("18") || CName.Contains("１８") || CName.Contains("十八")   || CName.Contains("拾八")   || CName.Contains("拾捌")) return 18;
+            if (CName.Contains("17") || CName.Contains("１７") || CName.Contains("十七")   || CName.Contains("拾七")   || CName.Contains("拾漆")) return 17;
+            if (CName.Contains("16") || CName.Contains("１６") || CName.Contains("十六")   || CName.Contains("拾六")   || CName.Contains("拾陸")) return 16;
+            if (CName.Contains("15") || CName.Contains("１５") || CName.Contains("十五")   || CName.Contains("拾五")   || CName.Contains("拾伍")) return 15;
+            if (CName.Contains("14") || CName.Contains("１４") || CName.Contains("十四")   || CName.Contains("拾四")   || CName.Contains("拾肆") || CName.Contains("達人")) return 14;
+            if (CName.Contains("13") || CName.Contains("１３") || CName.Contains("十三")   || CName.Contains("拾参")   || CName.Contains("超人")) return 13;
+            if (CName.Contains("12") || CName.Contains("１２") || CName.Contains("十二")   || CName.Contains("拾弐")   || CName.Contains("名人")) return 12;
+            if (CName.Contains("11") || CName.Contains("１１") || CName.Contains("十一")   || CName.Contains("拾壱")   || CName.Contains("玄人")) return 11;
+            if (CName.Contains("10") || CName.Contains("１０") || CName.Contains("十")     || CName.Contains("拾")     || CName.Contains("拾")) return 10;
+            if (CName.Contains("9")  || CName.Contains("９")   || CName.Contains("九")     || CName.Contains("九")     || CName.Contains("玖")) return 9;
+            if (CName.Contains("8")  || CName.Contains("８")   || CName.Contains("八")     || CName.Contains("八")     || CName.Contains("捌")) return 8;
+            if (CName.Contains("7")  || CName.Contains("７")   || CName.Contains("七")     || CName.Contains("七")     || CName.Contains("漆")) return 7;
+            if (CName.Contains("6")  || CName.Contains("６")   || CName.Contains("六")     || CName.Contains("六")     || CName.Contains("陸")) return 6;
+            if (CName.Contains("5")  || CName.Contains("５")   || CName.Contains("五")     || CName.Contains("五")     || CName.Contains("伍")) return 5;
+            if (CName.Contains("4")  || CName.Contains("４")   || CName.Contains("四")     || CName.Contains("四")     || CName.Contains("肆")) return 4;
+            if (CName.Contains("3")  || CName.Contains("３")   || CName.Contains("三")     || CName.Contains("参")     || CName.Contains("参")) return 3;
+            if (CName.Contains("2")  || CName.Contains("２")   || CName.Contains("二")     || CName.Contains("弐")     || CName.Contains("弐")) return 2;
+            if (CName.Contains("1")  || CName.Contains("１")   || CName.Contains("一")     || CName.Contains("壱")     || CName.Contains("初")) return 1;
             return 1;
 
         }
@@ -541,11 +552,11 @@ namespace JiroCourseEditor {
         private void CreateNewFile() {
             nowTJP = new TJP();
             nowTJP.Name = Constants.TJPDefault.Name;
+            isSaved = true;
             DrawTreeViewNowTJP();
             TrPack.SelectedNode = TrPack.Nodes[0];
 
             ChangeMenuByTrTJPSelectedNode(TrPack.Nodes[0]);
-            isSaved = true;
         }
 
         /// <summary>
@@ -956,14 +967,32 @@ namespace JiroCourseEditor {
         }
         #endregion
 
+        #region TJCの並び替え
         /// <summary>
-        /// コースの並べ替え
+        /// コースをナンバリング順で並べ替え
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void RClickSortByNum_Click(object sender, EventArgs e) {
-
+            nowTJP.TJCs.Sort((x, y) => x.Number.CompareTo(y.Number));
+            ChangeMenuByTrTJPSelectedNode(TrPack.Nodes[0]);
+            DrawTreeViewNowTJP();
+            TrPack.ExpandAll();
         }
+
+        /// <summary>
+        /// コースを名前順で並べ替え
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RClickSortByTJCName_Click(object sender, EventArgs e) {
+            nowTJP.TJCs.Sort((x, y) => x.Name.CompareTo(y.Name));
+            ChangeMenuByTrTJPSelectedNode(TrPack.Nodes[0]);
+            DrawTreeViewNowTJP();
+            TrPack.ExpandAll();
+        }
+
+        #endregion
 
         private void ヘルプToolStripMenuItem_Click(object sender, EventArgs e) {
             MessageBox.Show("助けて～");

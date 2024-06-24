@@ -60,6 +60,7 @@ namespace JiroCourseEditor {
             this.名前を付けて保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.パックを出力するフォルダの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CbIsTestTJCDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.ヘルプToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtMJECreate = new System.Windows.Forms.Button();
             this.CmsPack = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -70,6 +71,17 @@ namespace JiroCourseEditor {
             this.CmsCourse = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RClickMenuTJCDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelCourse = new System.Windows.Forms.Panel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.LbLevel5 = new System.Windows.Forms.Label();
+            this.LbLevel3 = new System.Windows.Forms.Label();
+            this.LbLevel2 = new System.Windows.Forms.Label();
+            this.LbLevel1 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.LbLevel4 = new System.Windows.Forms.Label();
             this.BtClear5 = new System.Windows.Forms.Button();
             this.BtClear4 = new System.Windows.Forms.Button();
             this.BtClear3 = new System.Windows.Forms.Button();
@@ -101,6 +113,9 @@ namespace JiroCourseEditor {
             this.label20 = new System.Windows.Forms.Label();
             this.CbNumbering = new System.Windows.Forms.CheckBox();
             this.PanelTJD = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TbConditionName = new System.Windows.Forms.TextBox();
+            this.CbTJDCombine = new System.Windows.Forms.CheckBox();
             this.CbRedOrGold = new System.Windows.Forms.ComboBox();
             this.LbPer3 = new System.Windows.Forms.Label();
             this.LbPer2 = new System.Windows.Forms.Label();
@@ -143,21 +158,6 @@ namespace JiroCourseEditor {
             this.label16 = new System.Windows.Forms.Label();
             this.LbNotesCount4 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.CbTJDCombine = new System.Windows.Forms.CheckBox();
-            this.TbConditionName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LbLevel5 = new System.Windows.Forms.Label();
-            this.LbLevel3 = new System.Windows.Forms.Label();
-            this.LbLevel2 = new System.Windows.Forms.Label();
-            this.LbLevel1 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.LbLevel4 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.CbIsTestTJCDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelPack.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -482,28 +482,28 @@ namespace JiroCourseEditor {
             // 新規作成ToolStripMenuItem
             // 
             this.新規作成ToolStripMenuItem.Name = "新規作成ToolStripMenuItem";
-            this.新規作成ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.新規作成ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.新規作成ToolStripMenuItem.Text = "新規作成";
             this.新規作成ToolStripMenuItem.Click += new System.EventHandler(this.新規作成ToolStripMenuItem_Click);
             // 
             // 開くToolStripMenuItem
             // 
             this.開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            this.開くToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.開くToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.開くToolStripMenuItem.Text = "開く";
             this.開くToolStripMenuItem.Click += new System.EventHandler(this.開くToolStripMenuItem_Click);
             // 
             // 上書き保存ToolStripMenuItem
             // 
             this.上書き保存ToolStripMenuItem.Name = "上書き保存ToolStripMenuItem";
-            this.上書き保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.上書き保存ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.上書き保存ToolStripMenuItem.Text = "上書き保存";
             this.上書き保存ToolStripMenuItem.Click += new System.EventHandler(this.上書き保存ToolStripMenuItem_Click);
             // 
             // 名前を付けて保存ToolStripMenuItem
             // 
             this.名前を付けて保存ToolStripMenuItem.Name = "名前を付けて保存ToolStripMenuItem";
-            this.名前を付けて保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.名前を付けて保存ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.名前を付けて保存ToolStripMenuItem.Text = "名前を付けて保存";
             this.名前を付けて保存ToolStripMenuItem.Click += new System.EventHandler(this.名前を付けて保存ToolStripMenuItem_Click);
             // 
@@ -522,6 +522,15 @@ namespace JiroCourseEditor {
             this.パックを出力するフォルダの設定ToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
             this.パックを出力するフォルダの設定ToolStripMenuItem.Text = "パックを出力するフォルダの設定";
             this.パックを出力するフォルダの設定ToolStripMenuItem.Click += new System.EventHandler(this.パックを出力するフォルダの設定ToolStripMenuItem_Click);
+            // 
+            // CbIsTestTJCDelete
+            // 
+            this.CbIsTestTJCDelete.Checked = true;
+            this.CbIsTestTJCDelete.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CbIsTestTJCDelete.Name = "CbIsTestTJCDelete";
+            this.CbIsTestTJCDelete.Size = new System.Drawing.Size(346, 22);
+            this.CbIsTestTJCDelete.Text = "アプリ終了時、テストプレイで生成したTJCをすべて削除する";
+            this.CbIsTestTJCDelete.CheckedChanged += new System.EventHandler(this.CbIsTestTJCDelete_CheckedChanged);
             // 
             // ヘルプToolStripMenuItem
             // 
@@ -569,15 +578,16 @@ namespace JiroCourseEditor {
             // RClickSortByNum
             // 
             this.RClickSortByNum.Name = "RClickSortByNum";
-            this.RClickSortByNum.Size = new System.Drawing.Size(167, 22);
+            this.RClickSortByNum.Size = new System.Drawing.Size(180, 22);
             this.RClickSortByNum.Text = "ナンバリング順";
             this.RClickSortByNum.Click += new System.EventHandler(this.RClickSortByNum_Click);
             // 
             // RClickSortByTJCName
             // 
             this.RClickSortByTJCName.Name = "RClickSortByTJCName";
-            this.RClickSortByTJCName.Size = new System.Drawing.Size(167, 22);
+            this.RClickSortByTJCName.Size = new System.Drawing.Size(180, 22);
             this.RClickSortByTJCName.Text = "コース名順(非推奨)";
+            this.RClickSortByTJCName.Click += new System.EventHandler(this.RClickSortByTJCName_Click);
             // 
             // CmsCourse
             // 
@@ -649,6 +659,105 @@ namespace JiroCourseEditor {
             this.PanelCourse.Name = "PanelCourse";
             this.PanelCourse.Size = new System.Drawing.Size(697, 690);
             this.PanelCourse.TabIndex = 12;
+            // 
+            // label37
+            // 
+            this.label37.Location = new System.Drawing.Point(594, 224);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(20, 23);
+            this.label37.TabIndex = 56;
+            this.label37.Text = "☆";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label36
+            // 
+            this.label36.Location = new System.Drawing.Point(594, 189);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(20, 23);
+            this.label36.TabIndex = 55;
+            this.label36.Text = "☆";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label35
+            // 
+            this.label35.Location = new System.Drawing.Point(594, 154);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(20, 23);
+            this.label35.TabIndex = 54;
+            this.label35.Text = "☆";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label34
+            // 
+            this.label34.Location = new System.Drawing.Point(594, 119);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(20, 23);
+            this.label34.TabIndex = 53;
+            this.label34.Text = "☆";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label33
+            // 
+            this.label33.Location = new System.Drawing.Point(594, 84);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(20, 23);
+            this.label33.TabIndex = 52;
+            this.label33.Text = "☆";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbLevel5
+            // 
+            this.LbLevel5.Location = new System.Drawing.Point(620, 224);
+            this.LbLevel5.Name = "LbLevel5";
+            this.LbLevel5.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel5.TabIndex = 51;
+            this.LbLevel5.Text = "0.0";
+            this.LbLevel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbLevel3
+            // 
+            this.LbLevel3.Location = new System.Drawing.Point(620, 154);
+            this.LbLevel3.Name = "LbLevel3";
+            this.LbLevel3.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel3.TabIndex = 49;
+            this.LbLevel3.Text = "0.0";
+            this.LbLevel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbLevel2
+            // 
+            this.LbLevel2.Location = new System.Drawing.Point(620, 119);
+            this.LbLevel2.Name = "LbLevel2";
+            this.LbLevel2.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel2.TabIndex = 48;
+            this.LbLevel2.Text = "0.0";
+            this.LbLevel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbLevel1
+            // 
+            this.LbLevel1.Location = new System.Drawing.Point(620, 84);
+            this.LbLevel1.Name = "LbLevel1";
+            this.LbLevel1.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel1.TabIndex = 47;
+            this.LbLevel1.Text = "0.0";
+            this.LbLevel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(603, 65);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(39, 12);
+            this.label31.TabIndex = 46;
+            this.label31.Text = "LEVEL";
+            // 
+            // LbLevel4
+            // 
+            this.LbLevel4.Location = new System.Drawing.Point(620, 189);
+            this.LbLevel4.Name = "LbLevel4";
+            this.LbLevel4.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel4.TabIndex = 50;
+            this.LbLevel4.Text = "0.0";
+            this.LbLevel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // BtClear5
             // 
@@ -1008,6 +1117,34 @@ namespace JiroCourseEditor {
             this.PanelTJD.Name = "PanelTJD";
             this.PanelTJD.Size = new System.Drawing.Size(697, 172);
             this.PanelTJD.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(124, 40);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "合格条件名";
+            // 
+            // TbConditionName
+            // 
+            this.TbConditionName.Location = new System.Drawing.Point(195, 37);
+            this.TbConditionName.Name = "TbConditionName";
+            this.TbConditionName.Size = new System.Drawing.Size(195, 19);
+            this.TbConditionName.TabIndex = 54;
+            this.TbConditionName.TextChanged += new System.EventHandler(this.TbConditionName_TextChanged);
+            // 
+            // CbTJDCombine
+            // 
+            this.CbTJDCombine.AutoSize = true;
+            this.CbTJDCombine.Enabled = false;
+            this.CbTJDCombine.Location = new System.Drawing.Point(360, 9);
+            this.CbTJDCombine.Name = "CbTJDCombine";
+            this.CbTJDCombine.Size = new System.Drawing.Size(231, 28);
+            this.CbTJDCombine.TabIndex = 53;
+            this.CbTJDCombine.Text = "赤・金合格条件を\r\n一緒のTJDファイルとして出力する（未実装）";
+            this.CbTJDCombine.UseVisualStyleBackColor = true;
             // 
             // CbRedOrGold
             // 
@@ -1436,142 +1573,6 @@ namespace JiroCourseEditor {
             this.LbNotesCount4.TabIndex = 38;
             this.LbNotesCount4.Text = "0";
             this.LbNotesCount4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // CbTJDCombine
-            // 
-            this.CbTJDCombine.AutoSize = true;
-            this.CbTJDCombine.Enabled = false;
-            this.CbTJDCombine.Location = new System.Drawing.Point(360, 9);
-            this.CbTJDCombine.Name = "CbTJDCombine";
-            this.CbTJDCombine.Size = new System.Drawing.Size(231, 28);
-            this.CbTJDCombine.TabIndex = 53;
-            this.CbTJDCombine.Text = "赤・金合格条件を\r\n一緒のTJDファイルとして出力する（未実装）";
-            this.CbTJDCombine.UseVisualStyleBackColor = true;
-            // 
-            // TbConditionName
-            // 
-            this.TbConditionName.Location = new System.Drawing.Point(195, 37);
-            this.TbConditionName.Name = "TbConditionName";
-            this.TbConditionName.Size = new System.Drawing.Size(195, 19);
-            this.TbConditionName.TabIndex = 54;
-            this.TbConditionName.TextChanged += new System.EventHandler(this.TbConditionName_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(124, 40);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 46;
-            this.label5.Text = "合格条件名";
-            // 
-            // LbLevel5
-            // 
-            this.LbLevel5.Location = new System.Drawing.Point(620, 224);
-            this.LbLevel5.Name = "LbLevel5";
-            this.LbLevel5.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel5.TabIndex = 51;
-            this.LbLevel5.Text = "0.0";
-            this.LbLevel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbLevel3
-            // 
-            this.LbLevel3.Location = new System.Drawing.Point(620, 154);
-            this.LbLevel3.Name = "LbLevel3";
-            this.LbLevel3.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel3.TabIndex = 49;
-            this.LbLevel3.Text = "0.0";
-            this.LbLevel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbLevel2
-            // 
-            this.LbLevel2.Location = new System.Drawing.Point(620, 119);
-            this.LbLevel2.Name = "LbLevel2";
-            this.LbLevel2.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel2.TabIndex = 48;
-            this.LbLevel2.Text = "0.0";
-            this.LbLevel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbLevel1
-            // 
-            this.LbLevel1.Location = new System.Drawing.Point(620, 84);
-            this.LbLevel1.Name = "LbLevel1";
-            this.LbLevel1.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel1.TabIndex = 47;
-            this.LbLevel1.Text = "0.0";
-            this.LbLevel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(603, 65);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(39, 12);
-            this.label31.TabIndex = 46;
-            this.label31.Text = "LEVEL";
-            // 
-            // LbLevel4
-            // 
-            this.LbLevel4.Location = new System.Drawing.Point(620, 189);
-            this.LbLevel4.Name = "LbLevel4";
-            this.LbLevel4.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel4.TabIndex = 50;
-            this.LbLevel4.Text = "0.0";
-            this.LbLevel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label33
-            // 
-            this.label33.Location = new System.Drawing.Point(594, 84);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(20, 23);
-            this.label33.TabIndex = 52;
-            this.label33.Text = "☆";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label34
-            // 
-            this.label34.Location = new System.Drawing.Point(594, 119);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(20, 23);
-            this.label34.TabIndex = 53;
-            this.label34.Text = "☆";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label35
-            // 
-            this.label35.Location = new System.Drawing.Point(594, 154);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(20, 23);
-            this.label35.TabIndex = 54;
-            this.label35.Text = "☆";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label36
-            // 
-            this.label36.Location = new System.Drawing.Point(594, 189);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(20, 23);
-            this.label36.TabIndex = 55;
-            this.label36.Text = "☆";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label37
-            // 
-            this.label37.Location = new System.Drawing.Point(594, 224);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(20, 23);
-            this.label37.TabIndex = 56;
-            this.label37.Text = "☆";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // CbIsTestTJCDelete
-            // 
-            this.CbIsTestTJCDelete.Checked = true;
-            this.CbIsTestTJCDelete.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CbIsTestTJCDelete.Name = "CbIsTestTJCDelete";
-            this.CbIsTestTJCDelete.Size = new System.Drawing.Size(346, 22);
-            this.CbIsTestTJCDelete.Text = "アプリ終了時、テストプレイで生成したTJCをすべて削除する";
-            this.CbIsTestTJCDelete.CheckedChanged += new System.EventHandler(this.CbIsTestTJCDelete_CheckedChanged);
             // 
             // Form1
             // 

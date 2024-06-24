@@ -225,6 +225,8 @@ namespace JiroCourseEditor {
 
                 foreach (var i in Enumerable.Range(1, 15)) {
                     TJC TJCforMDE = TJC.CreateForTJCMJE(isSP, i);
+                    // TJDはDPの場合無効にする
+                    TJCforMDE.isTJDEnabled = isSP;
                     MJEtjp.TJCs.Add(TJCforMDE);
                 }
 

@@ -251,14 +251,15 @@ namespace JiroCourseEditor {
         /// </summary>
         /// <returns>テストプレイで生成したTJC</returns>
         public FileInfo TestPlay() {
+            ErrorDialog eDialog = new ErrorDialog();
             if (!this.TJAs.Any(x => x != null)) {
-                MessageBox.Show("TJAを登録してください", "ざんねん", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                eDialog.ViewDialog("TJAを登録してください");
                 return null;
             }
 
             Process[] jiroProcesses = Process.GetProcessesByName("taikojiro");
             if (jiroProcesses.Length == 0) {
-                MessageBox.Show("太鼓さん次郎を起動してください", "ざんねん", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                eDialog.ViewDialog("太鼓さん次郎を起動してください");
                 return null;
             }
             Process jiroProcess = jiroProcesses[0];
@@ -267,8 +268,7 @@ namespace JiroCourseEditor {
 
             // 対象のTJAのうち、1つでも起動している次郎のディレクトリ内にない場合
             if (this.TJAs.Where(x => x != null).Any(x => x.FullName.StartsWith(JiroDInfo.FullName) == false)) {
-                MessageBox.Show("コースのTJAが、すべて起動している太鼓さん次郎のディレクトリ内に存在するようにしてください",
-                                "ざんねん", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                eDialog.ViewDialog("コースのTJAが、すべて起動している太鼓さん次郎のディレクトリ内に存在するようにしてください");
                 return null;
             }
 

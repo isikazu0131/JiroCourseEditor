@@ -37,6 +37,11 @@ namespace JiroCourseEditor {
         /// <param name="tjd"></param>
         public void Write(string outputFolder, string courseName) {
             try {
+                // 合格条件「なし」のみの条件の場合、メッセージを出力してtjdは作成しない
+                if (!this.PassingConditions.Any(x => x.passingType != PassingType.None)) {
+                    MessageBox.Show($"{courseName}の{this.Name}条件がすべて「なし」に設定されているため、tjdを出力しません");
+                    return;
+                }
                 string outputTJDPath = Path.Combine(outputFolder, $"{courseName}_{Name}{Constants.Extention.TJD}");
                 // まずは条件の種類を書く
                 foreach (PassingCondition condition in PassingConditions) {
