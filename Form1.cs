@@ -949,6 +949,7 @@ namespace JiroCourseEditor {
 
             if (setting.IsTestTJCDelete) {
                 foreach (var tjc in TestTJCs) {
+                    if (tjc == null) continue;
                     tjc.Delete();
                 }
             }
