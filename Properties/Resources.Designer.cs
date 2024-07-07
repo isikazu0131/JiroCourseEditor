@@ -63,6 +63,16 @@ namespace JiroCourseEditor.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap miosunaicon {
+            get {
+                object obj = ResourceManager.GetObject("miosunaicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap ng {
             get {
                 object obj = ResourceManager.GetObject("ng", resourceCulture);

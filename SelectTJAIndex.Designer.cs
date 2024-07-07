@@ -72,7 +72,10 @@
             this.Controls.Add(this.CbTJANum);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SelectTJAIndex";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.SelectTJAIndex_Load);
             this.ResumeLayout(false);
 

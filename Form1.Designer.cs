@@ -71,22 +71,6 @@ namespace JiroCourseEditor {
             this.CmsCourse = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RClickMenuTJCDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelCourse = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.LbLevel5 = new System.Windows.Forms.Label();
-            this.LbLevel3 = new System.Windows.Forms.Label();
-            this.LbLevel2 = new System.Windows.Forms.Label();
-            this.LbLevel1 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.LbLevel4 = new System.Windows.Forms.Label();
-            this.BtClear5 = new System.Windows.Forms.Button();
-            this.BtClear4 = new System.Windows.Forms.Button();
-            this.BtClear3 = new System.Windows.Forms.Button();
-            this.BtClear2 = new System.Windows.Forms.Button();
-            this.BtClear1 = new System.Windows.Forms.Button();
             this.PanelCourseInfo = new System.Windows.Forms.Panel();
             this.BtTestPlay = new System.Windows.Forms.Button();
             this.LbAvgLEVEL = new System.Windows.Forms.Label();
@@ -102,13 +86,6 @@ namespace JiroCourseEditor {
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.CbTitleInvisible = new System.Windows.Forms.CheckBox();
-            this.LbNotesCount5 = new System.Windows.Forms.Label();
-            this.Lb5th = new System.Windows.Forms.Label();
-            this.TbTJA5 = new System.Windows.Forms.TextBox();
-            this.BtSongSelect5 = new System.Windows.Forms.Button();
-            this.TbTJA4 = new System.Windows.Forms.TextBox();
-            this.BtSongSelect4 = new System.Windows.Forms.Button();
-            this.Lb4th = new System.Windows.Forms.Label();
             this.NmNumbering = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
             this.CbNumbering = new System.Windows.Forms.CheckBox();
@@ -140,24 +117,48 @@ namespace JiroCourseEditor {
             this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.LbNotesCount3 = new System.Windows.Forms.Label();
-            this.LbNotesCount2 = new System.Windows.Forms.Label();
-            this.LbNotesCount1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.TbTJA3 = new System.Windows.Forms.TextBox();
-            this.TbTJA2 = new System.Windows.Forms.TextBox();
-            this.TbTJA1 = new System.Windows.Forms.TextBox();
-            this.BtSongSelect3 = new System.Windows.Forms.Button();
-            this.Lb3rd = new System.Windows.Forms.Label();
-            this.BtSongSelect2 = new System.Windows.Forms.Button();
-            this.Lb2nd = new System.Windows.Forms.Label();
-            this.BtSongSelect1 = new System.Windows.Forms.Button();
-            this.Lb1st = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.TbCourseName = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.LbNotesCount4 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.LbNotesCount4 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.Lb1st = new System.Windows.Forms.Label();
+            this.BtSongSelect1 = new System.Windows.Forms.Button();
+            this.Lb2nd = new System.Windows.Forms.Label();
+            this.BtSongSelect2 = new System.Windows.Forms.Button();
+            this.Lb3rd = new System.Windows.Forms.Label();
+            this.BtSongSelect3 = new System.Windows.Forms.Button();
+            this.TbTJA1 = new System.Windows.Forms.TextBox();
+            this.TbTJA2 = new System.Windows.Forms.TextBox();
+            this.TbTJA3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LbNotesCount1 = new System.Windows.Forms.Label();
+            this.LbNotesCount2 = new System.Windows.Forms.Label();
+            this.LbNotesCount3 = new System.Windows.Forms.Label();
+            this.Lb4th = new System.Windows.Forms.Label();
+            this.BtSongSelect4 = new System.Windows.Forms.Button();
+            this.TbTJA4 = new System.Windows.Forms.TextBox();
+            this.BtSongSelect5 = new System.Windows.Forms.Button();
+            this.TbTJA5 = new System.Windows.Forms.TextBox();
+            this.Lb5th = new System.Windows.Forms.Label();
+            this.LbNotesCount5 = new System.Windows.Forms.Label();
+            this.BtClear1 = new System.Windows.Forms.Button();
+            this.BtClear2 = new System.Windows.Forms.Button();
+            this.BtClear3 = new System.Windows.Forms.Button();
+            this.BtClear4 = new System.Windows.Forms.Button();
+            this.BtClear5 = new System.Windows.Forms.Button();
+            this.LbLevel4 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.LbLevel1 = new System.Windows.Forms.Label();
+            this.LbLevel2 = new System.Windows.Forms.Label();
+            this.LbLevel3 = new System.Windows.Forms.Label();
+            this.LbLevel5 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.このアプリについての情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelPack.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -191,7 +192,7 @@ namespace JiroCourseEditor {
             treeNode1});
             this.TrPack.Size = new System.Drawing.Size(368, 689);
             this.TrPack.TabIndex = 0;
-            this.TrPack.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TrPack_NodeMouseClick);
+            this.TrPack.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrPack_AfterSelect);
             this.TrPack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TrPack_MouseDown);
             // 
             // BtCreate
@@ -335,7 +336,7 @@ namespace JiroCourseEditor {
             // 
             // BtChangeSongColor
             // 
-            this.BtChangeSongColor.Location = new System.Drawing.Point(513, 160);
+            this.BtChangeSongColor.Location = new System.Drawing.Point(510, 160);
             this.BtChangeSongColor.Name = "BtChangeSongColor";
             this.BtChangeSongColor.Size = new System.Drawing.Size(75, 23);
             this.BtChangeSongColor.TabIndex = 11;
@@ -348,7 +349,7 @@ namespace JiroCourseEditor {
             this.LbSongColorView.BackColor = System.Drawing.Color.Black;
             this.LbSongColorView.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LbSongColorView.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.LbSongColorView.Location = new System.Drawing.Point(94, 161);
+            this.LbSongColorView.Location = new System.Drawing.Point(91, 161);
             this.LbSongColorView.Name = "LbSongColorView";
             this.LbSongColorView.Size = new System.Drawing.Size(413, 22);
             this.LbSongColorView.TabIndex = 10;
@@ -358,7 +359,7 @@ namespace JiroCourseEditor {
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 165);
+            this.label8.Location = new System.Drawing.Point(9, 165);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 12);
             this.label8.TabIndex = 9;
@@ -366,7 +367,7 @@ namespace JiroCourseEditor {
             // 
             // BtChangeCourseColor
             // 
-            this.BtChangeCourseColor.Location = new System.Drawing.Point(513, 127);
+            this.BtChangeCourseColor.Location = new System.Drawing.Point(510, 127);
             this.BtChangeCourseColor.Name = "BtChangeCourseColor";
             this.BtChangeCourseColor.Size = new System.Drawing.Size(75, 23);
             this.BtChangeCourseColor.TabIndex = 8;
@@ -379,7 +380,7 @@ namespace JiroCourseEditor {
             this.LbCourseColorView.BackColor = System.Drawing.Color.Black;
             this.LbCourseColorView.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LbCourseColorView.ForeColor = System.Drawing.Color.Red;
-            this.LbCourseColorView.Location = new System.Drawing.Point(94, 128);
+            this.LbCourseColorView.Location = new System.Drawing.Point(91, 128);
             this.LbCourseColorView.Name = "LbCourseColorView";
             this.LbCourseColorView.Size = new System.Drawing.Size(413, 22);
             this.LbCourseColorView.TabIndex = 7;
@@ -389,7 +390,7 @@ namespace JiroCourseEditor {
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 132);
+            this.label6.Location = new System.Drawing.Point(9, 132);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 12);
             this.label6.TabIndex = 6;
@@ -397,7 +398,7 @@ namespace JiroCourseEditor {
             // 
             // BtChangePackColor
             // 
-            this.BtChangePackColor.Location = new System.Drawing.Point(513, 94);
+            this.BtChangePackColor.Location = new System.Drawing.Point(510, 94);
             this.BtChangePackColor.Name = "BtChangePackColor";
             this.BtChangePackColor.Size = new System.Drawing.Size(75, 23);
             this.BtChangePackColor.TabIndex = 5;
@@ -410,7 +411,7 @@ namespace JiroCourseEditor {
             this.LbPackColorView.BackColor = System.Drawing.Color.Black;
             this.LbPackColorView.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LbPackColorView.ForeColor = System.Drawing.Color.White;
-            this.LbPackColorView.Location = new System.Drawing.Point(94, 94);
+            this.LbPackColorView.Location = new System.Drawing.Point(91, 94);
             this.LbPackColorView.Name = "LbPackColorView";
             this.LbPackColorView.Size = new System.Drawing.Size(413, 22);
             this.LbPackColorView.TabIndex = 4;
@@ -420,7 +421,7 @@ namespace JiroCourseEditor {
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 98);
+            this.label3.Location = new System.Drawing.Point(9, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 12);
             this.label3.TabIndex = 3;
@@ -430,7 +431,7 @@ namespace JiroCourseEditor {
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(11, 50);
+            this.label2.Location = new System.Drawing.Point(8, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 16);
             this.label2.TabIndex = 2;
@@ -460,7 +461,8 @@ namespace JiroCourseEditor {
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ファイルToolStripMenuItem,
             this.設定ToolStripMenuItem,
-            this.ヘルプToolStripMenuItem});
+            this.ヘルプToolStripMenuItem,
+            this.このアプリについての情報ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
@@ -482,28 +484,28 @@ namespace JiroCourseEditor {
             // 新規作成ToolStripMenuItem
             // 
             this.新規作成ToolStripMenuItem.Name = "新規作成ToolStripMenuItem";
-            this.新規作成ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.新規作成ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.新規作成ToolStripMenuItem.Text = "新規作成";
             this.新規作成ToolStripMenuItem.Click += new System.EventHandler(this.新規作成ToolStripMenuItem_Click);
             // 
             // 開くToolStripMenuItem
             // 
             this.開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            this.開くToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.開くToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.開くToolStripMenuItem.Text = "開く";
             this.開くToolStripMenuItem.Click += new System.EventHandler(this.開くToolStripMenuItem_Click);
             // 
             // 上書き保存ToolStripMenuItem
             // 
             this.上書き保存ToolStripMenuItem.Name = "上書き保存ToolStripMenuItem";
-            this.上書き保存ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.上書き保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.上書き保存ToolStripMenuItem.Text = "上書き保存";
             this.上書き保存ToolStripMenuItem.Click += new System.EventHandler(this.上書き保存ToolStripMenuItem_Click);
             // 
             // 名前を付けて保存ToolStripMenuItem
             // 
             this.名前を付けて保存ToolStripMenuItem.Name = "名前を付けて保存ToolStripMenuItem";
-            this.名前を付けて保存ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.名前を付けて保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.名前を付けて保存ToolStripMenuItem.Text = "名前を付けて保存";
             this.名前を付けて保存ToolStripMenuItem.Click += new System.EventHandler(this.名前を付けて保存ToolStripMenuItem_Click);
             // 
@@ -578,14 +580,14 @@ namespace JiroCourseEditor {
             // RClickSortByNum
             // 
             this.RClickSortByNum.Name = "RClickSortByNum";
-            this.RClickSortByNum.Size = new System.Drawing.Size(180, 22);
+            this.RClickSortByNum.Size = new System.Drawing.Size(167, 22);
             this.RClickSortByNum.Text = "ナンバリング順";
             this.RClickSortByNum.Click += new System.EventHandler(this.RClickSortByNum_Click);
             // 
             // RClickSortByTJCName
             // 
             this.RClickSortByTJCName.Name = "RClickSortByTJCName";
-            this.RClickSortByTJCName.Size = new System.Drawing.Size(180, 22);
+            this.RClickSortByTJCName.Size = new System.Drawing.Size(167, 22);
             this.RClickSortByTJCName.Text = "コース名順(非推奨)";
             this.RClickSortByTJCName.Click += new System.EventHandler(this.RClickSortByTJCName_Click);
             // 
@@ -660,155 +662,6 @@ namespace JiroCourseEditor {
             this.PanelCourse.Size = new System.Drawing.Size(697, 690);
             this.PanelCourse.TabIndex = 12;
             // 
-            // label37
-            // 
-            this.label37.Location = new System.Drawing.Point(594, 224);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(20, 23);
-            this.label37.TabIndex = 56;
-            this.label37.Text = "☆";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label36
-            // 
-            this.label36.Location = new System.Drawing.Point(594, 189);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(20, 23);
-            this.label36.TabIndex = 55;
-            this.label36.Text = "☆";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label35
-            // 
-            this.label35.Location = new System.Drawing.Point(594, 154);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(20, 23);
-            this.label35.TabIndex = 54;
-            this.label35.Text = "☆";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label34
-            // 
-            this.label34.Location = new System.Drawing.Point(594, 119);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(20, 23);
-            this.label34.TabIndex = 53;
-            this.label34.Text = "☆";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label33
-            // 
-            this.label33.Location = new System.Drawing.Point(594, 84);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(20, 23);
-            this.label33.TabIndex = 52;
-            this.label33.Text = "☆";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbLevel5
-            // 
-            this.LbLevel5.Location = new System.Drawing.Point(620, 224);
-            this.LbLevel5.Name = "LbLevel5";
-            this.LbLevel5.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel5.TabIndex = 51;
-            this.LbLevel5.Text = "0.0";
-            this.LbLevel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbLevel3
-            // 
-            this.LbLevel3.Location = new System.Drawing.Point(620, 154);
-            this.LbLevel3.Name = "LbLevel3";
-            this.LbLevel3.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel3.TabIndex = 49;
-            this.LbLevel3.Text = "0.0";
-            this.LbLevel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbLevel2
-            // 
-            this.LbLevel2.Location = new System.Drawing.Point(620, 119);
-            this.LbLevel2.Name = "LbLevel2";
-            this.LbLevel2.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel2.TabIndex = 48;
-            this.LbLevel2.Text = "0.0";
-            this.LbLevel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbLevel1
-            // 
-            this.LbLevel1.Location = new System.Drawing.Point(620, 84);
-            this.LbLevel1.Name = "LbLevel1";
-            this.LbLevel1.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel1.TabIndex = 47;
-            this.LbLevel1.Text = "0.0";
-            this.LbLevel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(603, 65);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(39, 12);
-            this.label31.TabIndex = 46;
-            this.label31.Text = "LEVEL";
-            // 
-            // LbLevel4
-            // 
-            this.LbLevel4.Location = new System.Drawing.Point(620, 189);
-            this.LbLevel4.Name = "LbLevel4";
-            this.LbLevel4.Size = new System.Drawing.Size(27, 23);
-            this.LbLevel4.TabIndex = 50;
-            this.LbLevel4.Text = "0.0";
-            this.LbLevel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // BtClear5
-            // 
-            this.BtClear5.Location = new System.Drawing.Point(432, 224);
-            this.BtClear5.Name = "BtClear5";
-            this.BtClear5.Size = new System.Drawing.Size(75, 24);
-            this.BtClear5.TabIndex = 45;
-            this.BtClear5.Text = "クリア";
-            this.BtClear5.UseVisualStyleBackColor = true;
-            this.BtClear5.Click += new System.EventHandler(this.BtClear5_Click);
-            // 
-            // BtClear4
-            // 
-            this.BtClear4.Location = new System.Drawing.Point(431, 189);
-            this.BtClear4.Name = "BtClear4";
-            this.BtClear4.Size = new System.Drawing.Size(75, 24);
-            this.BtClear4.TabIndex = 44;
-            this.BtClear4.Text = "クリア";
-            this.BtClear4.UseVisualStyleBackColor = true;
-            this.BtClear4.Click += new System.EventHandler(this.BtClear4_Click);
-            // 
-            // BtClear3
-            // 
-            this.BtClear3.Location = new System.Drawing.Point(431, 154);
-            this.BtClear3.Name = "BtClear3";
-            this.BtClear3.Size = new System.Drawing.Size(75, 24);
-            this.BtClear3.TabIndex = 43;
-            this.BtClear3.Text = "クリア";
-            this.BtClear3.UseVisualStyleBackColor = true;
-            this.BtClear3.Click += new System.EventHandler(this.BtClear3_Click);
-            // 
-            // BtClear2
-            // 
-            this.BtClear2.Location = new System.Drawing.Point(432, 120);
-            this.BtClear2.Name = "BtClear2";
-            this.BtClear2.Size = new System.Drawing.Size(75, 24);
-            this.BtClear2.TabIndex = 42;
-            this.BtClear2.Text = "クリア";
-            this.BtClear2.UseVisualStyleBackColor = true;
-            this.BtClear2.Click += new System.EventHandler(this.BtClear2_Click);
-            // 
-            // BtClear1
-            // 
-            this.BtClear1.Location = new System.Drawing.Point(432, 84);
-            this.BtClear1.Name = "BtClear1";
-            this.BtClear1.Size = new System.Drawing.Size(75, 24);
-            this.BtClear1.TabIndex = 41;
-            this.BtClear1.Text = "クリア";
-            this.BtClear1.UseVisualStyleBackColor = true;
-            this.BtClear1.Click += new System.EventHandler(this.BtClear1_Click);
-            // 
             // PanelCourseInfo
             // 
             this.PanelCourseInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -822,15 +675,15 @@ namespace JiroCourseEditor {
             this.PanelCourseInfo.Controls.Add(this.label13);
             this.PanelCourseInfo.Controls.Add(this.label11);
             this.PanelCourseInfo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PanelCourseInfo.Location = new System.Drawing.Point(0, 543);
+            this.PanelCourseInfo.Location = new System.Drawing.Point(0, 560);
             this.PanelCourseInfo.Name = "PanelCourseInfo";
-            this.PanelCourseInfo.Size = new System.Drawing.Size(697, 147);
+            this.PanelCourseInfo.Size = new System.Drawing.Size(697, 130);
             this.PanelCourseInfo.TabIndex = 21;
             // 
             // BtTestPlay
             // 
             this.BtTestPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtTestPlay.Location = new System.Drawing.Point(555, 111);
+            this.BtTestPlay.Location = new System.Drawing.Point(555, 94);
             this.BtTestPlay.Margin = new System.Windows.Forms.Padding(2);
             this.BtTestPlay.Name = "BtTestPlay";
             this.BtTestPlay.Size = new System.Drawing.Size(142, 36);
@@ -916,9 +769,9 @@ namespace JiroCourseEditor {
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.CbTitleInvisible);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(0, 440);
+            this.panel1.Location = new System.Drawing.Point(0, 458);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(697, 106);
+            this.panel1.Size = new System.Drawing.Size(697, 111);
             this.panel1.TabIndex = 40;
             // 
             // BtChangeCourseSongColor
@@ -974,71 +827,6 @@ namespace JiroCourseEditor {
             this.CbTitleInvisible.Text = "各楽曲のTITLEを非表示にする";
             this.CbTitleInvisible.UseVisualStyleBackColor = true;
             this.CbTitleInvisible.CheckedChanged += new System.EventHandler(this.CbTitleInvisible_CheckedChanged);
-            // 
-            // LbNotesCount5
-            // 
-            this.LbNotesCount5.Location = new System.Drawing.Point(514, 224);
-            this.LbNotesCount5.Name = "LbNotesCount5";
-            this.LbNotesCount5.Size = new System.Drawing.Size(52, 23);
-            this.LbNotesCount5.TabIndex = 39;
-            this.LbNotesCount5.Text = "0";
-            this.LbNotesCount5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Lb5th
-            // 
-            this.Lb5th.AutoSize = true;
-            this.Lb5th.Location = new System.Drawing.Point(12, 230);
-            this.Lb5th.Name = "Lb5th";
-            this.Lb5th.Size = new System.Drawing.Size(35, 12);
-            this.Lb5th.TabIndex = 35;
-            this.Lb5th.Text = "5曲目";
-            // 
-            // TbTJA5
-            // 
-            this.TbTJA5.BackColor = System.Drawing.Color.White;
-            this.TbTJA5.Location = new System.Drawing.Point(58, 227);
-            this.TbTJA5.Name = "TbTJA5";
-            this.TbTJA5.ReadOnly = true;
-            this.TbTJA5.Size = new System.Drawing.Size(285, 19);
-            this.TbTJA5.TabIndex = 37;
-            // 
-            // BtSongSelect5
-            // 
-            this.BtSongSelect5.Location = new System.Drawing.Point(350, 224);
-            this.BtSongSelect5.Name = "BtSongSelect5";
-            this.BtSongSelect5.Size = new System.Drawing.Size(75, 24);
-            this.BtSongSelect5.TabIndex = 36;
-            this.BtSongSelect5.Text = "参照...";
-            this.BtSongSelect5.UseVisualStyleBackColor = true;
-            this.BtSongSelect5.Click += new System.EventHandler(this.BtSongSelect5_Click);
-            // 
-            // TbTJA4
-            // 
-            this.TbTJA4.BackColor = System.Drawing.Color.White;
-            this.TbTJA4.Location = new System.Drawing.Point(58, 192);
-            this.TbTJA4.Name = "TbTJA4";
-            this.TbTJA4.ReadOnly = true;
-            this.TbTJA4.Size = new System.Drawing.Size(285, 19);
-            this.TbTJA4.TabIndex = 34;
-            // 
-            // BtSongSelect4
-            // 
-            this.BtSongSelect4.Location = new System.Drawing.Point(349, 189);
-            this.BtSongSelect4.Name = "BtSongSelect4";
-            this.BtSongSelect4.Size = new System.Drawing.Size(75, 24);
-            this.BtSongSelect4.TabIndex = 33;
-            this.BtSongSelect4.Text = "参照...";
-            this.BtSongSelect4.UseVisualStyleBackColor = true;
-            this.BtSongSelect4.Click += new System.EventHandler(this.BtSongSelect4_Click);
-            // 
-            // Lb4th
-            // 
-            this.Lb4th.AutoSize = true;
-            this.Lb4th.Location = new System.Drawing.Point(12, 195);
-            this.Lb4th.Name = "Lb4th";
-            this.Lb4th.Size = new System.Drawing.Size(35, 12);
-            this.Lb4th.TabIndex = 32;
-            this.Lb4th.Text = "4曲目";
             // 
             // NmNumbering
             // 
@@ -1113,9 +901,9 @@ namespace JiroCourseEditor {
             this.PanelTJD.Controls.Add(this.label25);
             this.PanelTJD.Controls.Add(this.label26);
             this.PanelTJD.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PanelTJD.Location = new System.Drawing.Point(0, 268);
+            this.PanelTJD.Location = new System.Drawing.Point(0, 282);
             this.PanelTJD.Name = "PanelTJD";
-            this.PanelTJD.Size = new System.Drawing.Size(697, 172);
+            this.PanelTJD.Size = new System.Drawing.Size(697, 182);
             this.PanelTJD.TabIndex = 28;
             // 
             // label5
@@ -1286,6 +1074,7 @@ namespace JiroCourseEditor {
             this.NmLife.Name = "NmLife";
             this.NmLife.Size = new System.Drawing.Size(86, 19);
             this.NmLife.TabIndex = 34;
+            this.NmLife.ValueChanged += new System.EventHandler(this.NmLife_ValueChanged);
             // 
             // CbCondition3
             // 
@@ -1372,7 +1161,7 @@ namespace JiroCourseEditor {
             // BtTJDforMJE
             // 
             this.BtTJDforMJE.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtTJDforMJE.Location = new System.Drawing.Point(528, 127);
+            this.BtTJDforMJE.Location = new System.Drawing.Point(572, 126);
             this.BtTJDforMJE.Margin = new System.Windows.Forms.Padding(2);
             this.BtTJDforMJE.Name = "BtTJDforMJE";
             this.BtTJDforMJE.Size = new System.Drawing.Size(119, 45);
@@ -1418,136 +1207,6 @@ namespace JiroCourseEditor {
             this.label26.TabIndex = 22;
             this.label26.Text = "合格条件設定";
             // 
-            // LbNotesCount3
-            // 
-            this.LbNotesCount3.Location = new System.Drawing.Point(514, 154);
-            this.LbNotesCount3.Name = "LbNotesCount3";
-            this.LbNotesCount3.Size = new System.Drawing.Size(52, 23);
-            this.LbNotesCount3.TabIndex = 18;
-            this.LbNotesCount3.Text = "0";
-            this.LbNotesCount3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbNotesCount2
-            // 
-            this.LbNotesCount2.Location = new System.Drawing.Point(514, 119);
-            this.LbNotesCount2.Name = "LbNotesCount2";
-            this.LbNotesCount2.Size = new System.Drawing.Size(52, 23);
-            this.LbNotesCount2.TabIndex = 17;
-            this.LbNotesCount2.Text = "0";
-            this.LbNotesCount2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LbNotesCount1
-            // 
-            this.LbNotesCount1.Location = new System.Drawing.Point(514, 84);
-            this.LbNotesCount1.Name = "LbNotesCount1";
-            this.LbNotesCount1.Size = new System.Drawing.Size(52, 23);
-            this.LbNotesCount1.TabIndex = 16;
-            this.LbNotesCount1.Text = "0";
-            this.LbNotesCount1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(522, 65);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 12);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "ノーツ数";
-            // 
-            // TbTJA3
-            // 
-            this.TbTJA3.BackColor = System.Drawing.Color.White;
-            this.TbTJA3.Location = new System.Drawing.Point(58, 157);
-            this.TbTJA3.Name = "TbTJA3";
-            this.TbTJA3.ReadOnly = true;
-            this.TbTJA3.Size = new System.Drawing.Size(285, 19);
-            this.TbTJA3.TabIndex = 14;
-            // 
-            // TbTJA2
-            // 
-            this.TbTJA2.BackColor = System.Drawing.Color.White;
-            this.TbTJA2.Location = new System.Drawing.Point(58, 122);
-            this.TbTJA2.Name = "TbTJA2";
-            this.TbTJA2.ReadOnly = true;
-            this.TbTJA2.Size = new System.Drawing.Size(285, 19);
-            this.TbTJA2.TabIndex = 13;
-            // 
-            // TbTJA1
-            // 
-            this.TbTJA1.BackColor = System.Drawing.Color.White;
-            this.TbTJA1.Location = new System.Drawing.Point(59, 86);
-            this.TbTJA1.Name = "TbTJA1";
-            this.TbTJA1.ReadOnly = true;
-            this.TbTJA1.Size = new System.Drawing.Size(285, 19);
-            this.TbTJA1.TabIndex = 12;
-            // 
-            // BtSongSelect3
-            // 
-            this.BtSongSelect3.Location = new System.Drawing.Point(349, 154);
-            this.BtSongSelect3.Name = "BtSongSelect3";
-            this.BtSongSelect3.Size = new System.Drawing.Size(75, 24);
-            this.BtSongSelect3.TabIndex = 11;
-            this.BtSongSelect3.Text = "参照...";
-            this.BtSongSelect3.UseVisualStyleBackColor = true;
-            this.BtSongSelect3.Click += new System.EventHandler(this.BtSongSelect3_Click);
-            // 
-            // Lb3rd
-            // 
-            this.Lb3rd.AutoSize = true;
-            this.Lb3rd.Location = new System.Drawing.Point(12, 160);
-            this.Lb3rd.Name = "Lb3rd";
-            this.Lb3rd.Size = new System.Drawing.Size(35, 12);
-            this.Lb3rd.TabIndex = 9;
-            this.Lb3rd.Text = "3曲目";
-            // 
-            // BtSongSelect2
-            // 
-            this.BtSongSelect2.Location = new System.Drawing.Point(350, 120);
-            this.BtSongSelect2.Name = "BtSongSelect2";
-            this.BtSongSelect2.Size = new System.Drawing.Size(75, 24);
-            this.BtSongSelect2.TabIndex = 8;
-            this.BtSongSelect2.Text = "参照...";
-            this.BtSongSelect2.UseVisualStyleBackColor = true;
-            this.BtSongSelect2.Click += new System.EventHandler(this.BtSongSelect2_Click);
-            // 
-            // Lb2nd
-            // 
-            this.Lb2nd.AutoSize = true;
-            this.Lb2nd.Location = new System.Drawing.Point(12, 125);
-            this.Lb2nd.Name = "Lb2nd";
-            this.Lb2nd.Size = new System.Drawing.Size(35, 12);
-            this.Lb2nd.TabIndex = 6;
-            this.Lb2nd.Text = "2曲目";
-            // 
-            // BtSongSelect1
-            // 
-            this.BtSongSelect1.Location = new System.Drawing.Point(350, 84);
-            this.BtSongSelect1.Name = "BtSongSelect1";
-            this.BtSongSelect1.Size = new System.Drawing.Size(75, 24);
-            this.BtSongSelect1.TabIndex = 5;
-            this.BtSongSelect1.Text = "参照...";
-            this.BtSongSelect1.UseVisualStyleBackColor = true;
-            this.BtSongSelect1.Click += new System.EventHandler(this.BtSongSelect1_Click);
-            // 
-            // Lb1st
-            // 
-            this.Lb1st.AutoSize = true;
-            this.Lb1st.Location = new System.Drawing.Point(12, 90);
-            this.Lb1st.Name = "Lb1st";
-            this.Lb1st.Size = new System.Drawing.Size(35, 12);
-            this.Lb1st.TabIndex = 3;
-            this.Lb1st.Text = "1曲目";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label15.Location = new System.Drawing.Point(12, 50);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(423, 16);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "課題曲選択(当アプリにドラッグアンドドロップでも選択できます)";
-            // 
             // TbCourseName
             // 
             this.TbCourseName.Location = new System.Drawing.Point(59, 9);
@@ -1567,12 +1226,363 @@ namespace JiroCourseEditor {
             // 
             // LbNotesCount4
             // 
-            this.LbNotesCount4.Location = new System.Drawing.Point(514, 189);
+            this.LbNotesCount4.Location = new System.Drawing.Point(510, 189);
             this.LbNotesCount4.Name = "LbNotesCount4";
             this.LbNotesCount4.Size = new System.Drawing.Size(52, 23);
             this.LbNotesCount4.TabIndex = 38;
             this.LbNotesCount4.Text = "0";
             this.LbNotesCount4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label15.Location = new System.Drawing.Point(7, 50);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(423, 16);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "課題曲選択(当アプリにドラッグアンドドロップでも選択できます)";
+            // 
+            // Lb1st
+            // 
+            this.Lb1st.AutoSize = true;
+            this.Lb1st.Location = new System.Drawing.Point(8, 90);
+            this.Lb1st.Name = "Lb1st";
+            this.Lb1st.Size = new System.Drawing.Size(35, 12);
+            this.Lb1st.TabIndex = 3;
+            this.Lb1st.Text = "1曲目";
+            // 
+            // BtSongSelect1
+            // 
+            this.BtSongSelect1.Location = new System.Drawing.Point(346, 84);
+            this.BtSongSelect1.Name = "BtSongSelect1";
+            this.BtSongSelect1.Size = new System.Drawing.Size(75, 24);
+            this.BtSongSelect1.TabIndex = 5;
+            this.BtSongSelect1.Text = "参照...";
+            this.BtSongSelect1.UseVisualStyleBackColor = true;
+            this.BtSongSelect1.Click += new System.EventHandler(this.BtSongSelect1_Click);
+            // 
+            // Lb2nd
+            // 
+            this.Lb2nd.AutoSize = true;
+            this.Lb2nd.Location = new System.Drawing.Point(8, 125);
+            this.Lb2nd.Name = "Lb2nd";
+            this.Lb2nd.Size = new System.Drawing.Size(35, 12);
+            this.Lb2nd.TabIndex = 6;
+            this.Lb2nd.Text = "2曲目";
+            // 
+            // BtSongSelect2
+            // 
+            this.BtSongSelect2.Location = new System.Drawing.Point(346, 120);
+            this.BtSongSelect2.Name = "BtSongSelect2";
+            this.BtSongSelect2.Size = new System.Drawing.Size(75, 24);
+            this.BtSongSelect2.TabIndex = 8;
+            this.BtSongSelect2.Text = "参照...";
+            this.BtSongSelect2.UseVisualStyleBackColor = true;
+            this.BtSongSelect2.Click += new System.EventHandler(this.BtSongSelect2_Click);
+            // 
+            // Lb3rd
+            // 
+            this.Lb3rd.AutoSize = true;
+            this.Lb3rd.Location = new System.Drawing.Point(8, 160);
+            this.Lb3rd.Name = "Lb3rd";
+            this.Lb3rd.Size = new System.Drawing.Size(35, 12);
+            this.Lb3rd.TabIndex = 9;
+            this.Lb3rd.Text = "3曲目";
+            // 
+            // BtSongSelect3
+            // 
+            this.BtSongSelect3.Location = new System.Drawing.Point(345, 154);
+            this.BtSongSelect3.Name = "BtSongSelect3";
+            this.BtSongSelect3.Size = new System.Drawing.Size(75, 24);
+            this.BtSongSelect3.TabIndex = 11;
+            this.BtSongSelect3.Text = "参照...";
+            this.BtSongSelect3.UseVisualStyleBackColor = true;
+            this.BtSongSelect3.Click += new System.EventHandler(this.BtSongSelect3_Click);
+            // 
+            // TbTJA1
+            // 
+            this.TbTJA1.BackColor = System.Drawing.Color.White;
+            this.TbTJA1.Location = new System.Drawing.Point(55, 86);
+            this.TbTJA1.Name = "TbTJA1";
+            this.TbTJA1.ReadOnly = true;
+            this.TbTJA1.Size = new System.Drawing.Size(285, 19);
+            this.TbTJA1.TabIndex = 12;
+            // 
+            // TbTJA2
+            // 
+            this.TbTJA2.BackColor = System.Drawing.Color.White;
+            this.TbTJA2.Location = new System.Drawing.Point(54, 122);
+            this.TbTJA2.Name = "TbTJA2";
+            this.TbTJA2.ReadOnly = true;
+            this.TbTJA2.Size = new System.Drawing.Size(285, 19);
+            this.TbTJA2.TabIndex = 13;
+            // 
+            // TbTJA3
+            // 
+            this.TbTJA3.BackColor = System.Drawing.Color.White;
+            this.TbTJA3.Location = new System.Drawing.Point(54, 157);
+            this.TbTJA3.Name = "TbTJA3";
+            this.TbTJA3.ReadOnly = true;
+            this.TbTJA3.Size = new System.Drawing.Size(285, 19);
+            this.TbTJA3.TabIndex = 14;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(518, 65);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 12);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "ノーツ数";
+            // 
+            // LbNotesCount1
+            // 
+            this.LbNotesCount1.Location = new System.Drawing.Point(510, 84);
+            this.LbNotesCount1.Name = "LbNotesCount1";
+            this.LbNotesCount1.Size = new System.Drawing.Size(52, 23);
+            this.LbNotesCount1.TabIndex = 16;
+            this.LbNotesCount1.Text = "0";
+            this.LbNotesCount1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbNotesCount2
+            // 
+            this.LbNotesCount2.Location = new System.Drawing.Point(510, 119);
+            this.LbNotesCount2.Name = "LbNotesCount2";
+            this.LbNotesCount2.Size = new System.Drawing.Size(52, 23);
+            this.LbNotesCount2.TabIndex = 17;
+            this.LbNotesCount2.Text = "0";
+            this.LbNotesCount2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbNotesCount3
+            // 
+            this.LbNotesCount3.Location = new System.Drawing.Point(510, 154);
+            this.LbNotesCount3.Name = "LbNotesCount3";
+            this.LbNotesCount3.Size = new System.Drawing.Size(52, 23);
+            this.LbNotesCount3.TabIndex = 18;
+            this.LbNotesCount3.Text = "0";
+            this.LbNotesCount3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Lb4th
+            // 
+            this.Lb4th.AutoSize = true;
+            this.Lb4th.Location = new System.Drawing.Point(8, 195);
+            this.Lb4th.Name = "Lb4th";
+            this.Lb4th.Size = new System.Drawing.Size(35, 12);
+            this.Lb4th.TabIndex = 32;
+            this.Lb4th.Text = "4曲目";
+            // 
+            // BtSongSelect4
+            // 
+            this.BtSongSelect4.Location = new System.Drawing.Point(345, 189);
+            this.BtSongSelect4.Name = "BtSongSelect4";
+            this.BtSongSelect4.Size = new System.Drawing.Size(75, 24);
+            this.BtSongSelect4.TabIndex = 33;
+            this.BtSongSelect4.Text = "参照...";
+            this.BtSongSelect4.UseVisualStyleBackColor = true;
+            this.BtSongSelect4.Click += new System.EventHandler(this.BtSongSelect4_Click);
+            // 
+            // TbTJA4
+            // 
+            this.TbTJA4.BackColor = System.Drawing.Color.White;
+            this.TbTJA4.Location = new System.Drawing.Point(54, 192);
+            this.TbTJA4.Name = "TbTJA4";
+            this.TbTJA4.ReadOnly = true;
+            this.TbTJA4.Size = new System.Drawing.Size(285, 19);
+            this.TbTJA4.TabIndex = 34;
+            // 
+            // BtSongSelect5
+            // 
+            this.BtSongSelect5.Location = new System.Drawing.Point(346, 224);
+            this.BtSongSelect5.Name = "BtSongSelect5";
+            this.BtSongSelect5.Size = new System.Drawing.Size(75, 24);
+            this.BtSongSelect5.TabIndex = 36;
+            this.BtSongSelect5.Text = "参照...";
+            this.BtSongSelect5.UseVisualStyleBackColor = true;
+            this.BtSongSelect5.Click += new System.EventHandler(this.BtSongSelect5_Click);
+            // 
+            // TbTJA5
+            // 
+            this.TbTJA5.BackColor = System.Drawing.Color.White;
+            this.TbTJA5.Location = new System.Drawing.Point(54, 227);
+            this.TbTJA5.Name = "TbTJA5";
+            this.TbTJA5.ReadOnly = true;
+            this.TbTJA5.Size = new System.Drawing.Size(285, 19);
+            this.TbTJA5.TabIndex = 37;
+            // 
+            // Lb5th
+            // 
+            this.Lb5th.AutoSize = true;
+            this.Lb5th.Location = new System.Drawing.Point(8, 230);
+            this.Lb5th.Name = "Lb5th";
+            this.Lb5th.Size = new System.Drawing.Size(35, 12);
+            this.Lb5th.TabIndex = 35;
+            this.Lb5th.Text = "5曲目";
+            // 
+            // LbNotesCount5
+            // 
+            this.LbNotesCount5.Location = new System.Drawing.Point(510, 224);
+            this.LbNotesCount5.Name = "LbNotesCount5";
+            this.LbNotesCount5.Size = new System.Drawing.Size(52, 23);
+            this.LbNotesCount5.TabIndex = 39;
+            this.LbNotesCount5.Text = "0";
+            this.LbNotesCount5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // BtClear1
+            // 
+            this.BtClear1.Location = new System.Drawing.Point(428, 84);
+            this.BtClear1.Name = "BtClear1";
+            this.BtClear1.Size = new System.Drawing.Size(75, 24);
+            this.BtClear1.TabIndex = 41;
+            this.BtClear1.Text = "クリア";
+            this.BtClear1.UseVisualStyleBackColor = true;
+            this.BtClear1.Click += new System.EventHandler(this.BtClear1_Click);
+            // 
+            // BtClear2
+            // 
+            this.BtClear2.Location = new System.Drawing.Point(428, 120);
+            this.BtClear2.Name = "BtClear2";
+            this.BtClear2.Size = new System.Drawing.Size(75, 24);
+            this.BtClear2.TabIndex = 42;
+            this.BtClear2.Text = "クリア";
+            this.BtClear2.UseVisualStyleBackColor = true;
+            this.BtClear2.Click += new System.EventHandler(this.BtClear2_Click);
+            // 
+            // BtClear3
+            // 
+            this.BtClear3.Location = new System.Drawing.Point(427, 154);
+            this.BtClear3.Name = "BtClear3";
+            this.BtClear3.Size = new System.Drawing.Size(75, 24);
+            this.BtClear3.TabIndex = 43;
+            this.BtClear3.Text = "クリア";
+            this.BtClear3.UseVisualStyleBackColor = true;
+            this.BtClear3.Click += new System.EventHandler(this.BtClear3_Click);
+            // 
+            // BtClear4
+            // 
+            this.BtClear4.Location = new System.Drawing.Point(427, 189);
+            this.BtClear4.Name = "BtClear4";
+            this.BtClear4.Size = new System.Drawing.Size(75, 24);
+            this.BtClear4.TabIndex = 44;
+            this.BtClear4.Text = "クリア";
+            this.BtClear4.UseVisualStyleBackColor = true;
+            this.BtClear4.Click += new System.EventHandler(this.BtClear4_Click);
+            // 
+            // BtClear5
+            // 
+            this.BtClear5.Location = new System.Drawing.Point(428, 224);
+            this.BtClear5.Name = "BtClear5";
+            this.BtClear5.Size = new System.Drawing.Size(75, 24);
+            this.BtClear5.TabIndex = 45;
+            this.BtClear5.Text = "クリア";
+            this.BtClear5.UseVisualStyleBackColor = true;
+            this.BtClear5.Click += new System.EventHandler(this.BtClear5_Click);
+            // 
+            // LbLevel4
+            // 
+            this.LbLevel4.Location = new System.Drawing.Point(616, 189);
+            this.LbLevel4.Name = "LbLevel4";
+            this.LbLevel4.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel4.TabIndex = 50;
+            this.LbLevel4.Text = "0.0";
+            this.LbLevel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(599, 65);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(39, 12);
+            this.label31.TabIndex = 46;
+            this.label31.Text = "LEVEL";
+            // 
+            // LbLevel1
+            // 
+            this.LbLevel1.Location = new System.Drawing.Point(616, 84);
+            this.LbLevel1.Name = "LbLevel1";
+            this.LbLevel1.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel1.TabIndex = 47;
+            this.LbLevel1.Text = "0.0";
+            this.LbLevel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbLevel2
+            // 
+            this.LbLevel2.Location = new System.Drawing.Point(616, 119);
+            this.LbLevel2.Name = "LbLevel2";
+            this.LbLevel2.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel2.TabIndex = 48;
+            this.LbLevel2.Text = "0.0";
+            this.LbLevel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbLevel3
+            // 
+            this.LbLevel3.Location = new System.Drawing.Point(616, 154);
+            this.LbLevel3.Name = "LbLevel3";
+            this.LbLevel3.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel3.TabIndex = 49;
+            this.LbLevel3.Text = "0.0";
+            this.LbLevel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LbLevel5
+            // 
+            this.LbLevel5.Location = new System.Drawing.Point(616, 224);
+            this.LbLevel5.Name = "LbLevel5";
+            this.LbLevel5.Size = new System.Drawing.Size(27, 23);
+            this.LbLevel5.TabIndex = 51;
+            this.LbLevel5.Text = "0.0";
+            this.LbLevel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label33
+            // 
+            this.label33.Location = new System.Drawing.Point(590, 84);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(20, 23);
+            this.label33.TabIndex = 52;
+            this.label33.Text = "☆";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label34
+            // 
+            this.label34.Location = new System.Drawing.Point(590, 119);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(20, 23);
+            this.label34.TabIndex = 53;
+            this.label34.Text = "☆";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label35
+            // 
+            this.label35.Location = new System.Drawing.Point(590, 154);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(20, 23);
+            this.label35.TabIndex = 54;
+            this.label35.Text = "☆";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label36
+            // 
+            this.label36.Location = new System.Drawing.Point(590, 189);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(20, 23);
+            this.label36.TabIndex = 55;
+            this.label36.Text = "☆";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label37
+            // 
+            this.label37.Location = new System.Drawing.Point(590, 224);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(20, 23);
+            this.label37.TabIndex = 56;
+            this.label37.Text = "☆";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // このアプリについての情報ToolStripMenuItem
+            // 
+            this.このアプリについての情報ToolStripMenuItem.Name = "このアプリについての情報ToolStripMenuItem";
+            this.このアプリについての情報ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.このアプリについての情報ToolStripMenuItem.Text = "このアプリについての情報";
+            this.このアプリについての情報ToolStripMenuItem.Click += new System.EventHandler(this.このアプリについての情報ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1655,13 +1665,6 @@ namespace JiroCourseEditor {
         private System.Windows.Forms.ContextMenuStrip CmsCourse;
         private System.Windows.Forms.ToolStripMenuItem RClickMenuTJCDelete;
         private System.Windows.Forms.Panel PanelCourse;
-        private System.Windows.Forms.Button BtSongSelect3;
-        private System.Windows.Forms.Label Lb3rd;
-        private System.Windows.Forms.Button BtSongSelect2;
-        private System.Windows.Forms.Label Lb2nd;
-        private System.Windows.Forms.Button BtSongSelect1;
-        private System.Windows.Forms.Label Lb1st;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox TbCourseName;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel PanelCourseInfo;
@@ -1670,13 +1673,6 @@ namespace JiroCourseEditor {
         private System.Windows.Forms.Label LbCourseNotes;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label LbNotesCount3;
-        private System.Windows.Forms.Label LbNotesCount2;
-        private System.Windows.Forms.Label LbNotesCount1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox TbTJA3;
-        private System.Windows.Forms.TextBox TbTJA2;
-        private System.Windows.Forms.TextBox TbTJA1;
         private System.Windows.Forms.Panel PanelTJD;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label23;
@@ -1695,14 +1691,6 @@ namespace JiroCourseEditor {
         private System.Windows.Forms.NumericUpDown NmThreshold3;
         private System.Windows.Forms.NumericUpDown NmThreshold2;
         private System.Windows.Forms.NumericUpDown NmThreshold1;
-        private System.Windows.Forms.Label Lb5th;
-        private System.Windows.Forms.TextBox TbTJA5;
-        private System.Windows.Forms.Button BtSongSelect5;
-        private System.Windows.Forms.TextBox TbTJA4;
-        private System.Windows.Forms.Button BtSongSelect4;
-        private System.Windows.Forms.Label Lb4th;
-        private System.Windows.Forms.Label LbNotesCount5;
-        private System.Windows.Forms.Label LbNotesCount4;
         private System.Windows.Forms.CheckBox CbTitleInvisible;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtChangeCourseSongColor;
@@ -1711,11 +1699,6 @@ namespace JiroCourseEditor {
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown NmLife;
-        private System.Windows.Forms.Button BtClear5;
-        private System.Windows.Forms.Button BtClear4;
-        private System.Windows.Forms.Button BtClear3;
-        private System.Windows.Forms.Button BtClear2;
-        private System.Windows.Forms.Button BtClear1;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.ToolStripMenuItem 開くToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
@@ -1748,6 +1731,7 @@ namespace JiroCourseEditor {
         private System.Windows.Forms.CheckBox CbTJDCombine;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TbConditionName;
+        private System.Windows.Forms.ToolStripMenuItem CbIsTestTJCDelete;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
@@ -1759,7 +1743,34 @@ namespace JiroCourseEditor {
         private System.Windows.Forms.Label LbLevel1;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label LbLevel4;
-        private System.Windows.Forms.ToolStripMenuItem CbIsTestTJCDelete;
+        private System.Windows.Forms.Button BtClear5;
+        private System.Windows.Forms.Button BtClear4;
+        private System.Windows.Forms.Button BtClear3;
+        private System.Windows.Forms.Button BtClear2;
+        private System.Windows.Forms.Button BtClear1;
+        private System.Windows.Forms.Label LbNotesCount5;
+        private System.Windows.Forms.Label Lb5th;
+        private System.Windows.Forms.TextBox TbTJA5;
+        private System.Windows.Forms.Button BtSongSelect5;
+        private System.Windows.Forms.TextBox TbTJA4;
+        private System.Windows.Forms.Button BtSongSelect4;
+        private System.Windows.Forms.Label Lb4th;
+        private System.Windows.Forms.Label LbNotesCount3;
+        private System.Windows.Forms.Label LbNotesCount2;
+        private System.Windows.Forms.Label LbNotesCount1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox TbTJA3;
+        private System.Windows.Forms.TextBox TbTJA2;
+        private System.Windows.Forms.TextBox TbTJA1;
+        private System.Windows.Forms.Button BtSongSelect3;
+        private System.Windows.Forms.Label Lb3rd;
+        private System.Windows.Forms.Button BtSongSelect2;
+        private System.Windows.Forms.Label Lb2nd;
+        private System.Windows.Forms.Button BtSongSelect1;
+        private System.Windows.Forms.Label Lb1st;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label LbNotesCount4;
+        private System.Windows.Forms.ToolStripMenuItem このアプリについての情報ToolStripMenuItem;
     }
 }
 

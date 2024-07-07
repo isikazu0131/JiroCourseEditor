@@ -367,18 +367,23 @@ namespace JiroCourseEditor {
                 using (StreamWriter sw = new StreamWriter(tjcPath, false, Encoding.GetEncoding("Shift_jis"))) {
                     // tjcに書き込む内容
                     List<string> lines = new List<string>();
+
+                    // JiroCourseEditorを使って作られた旨のコメント（ｺﾞﾒﾝﾈ!!!!!）
+                    lines.Add($"// This tjc made by \"Jiro Pack Editor {Constants.AppInfo.Version}\"");
+
                     lines.Add($"TITLE:{this.Name}\r\n" +
                               $"LIFE:{this.Life}\r\n");
 
-                    foreach (var tja in this.TJAs) {
-                        if (tja == null) continue;
+                    foreach (var tja in this.TJAs.Select((value, index) => (value, index))) {
+                        if (tja.value == null) continue;
                         // tjaの相対パスを取得して書いていく
-                        // (パック名)\課題曲\(コース名)\(tja名)
+                        // (パック名)\課題曲\(コース名)\(曲番号)_(拡張子なしtja名)\(tja名)
                         string relativePath = Path.Combine(tjpName,
                                                            Constants.DirectoryName.Songs,
                                                            numberedTJCName,
-                                                           tja.FileName.Replace(Path.GetExtension(tja.FileName), ""),
-                                                           tja.FileName);
+                                                           // 末尾に「.」や「 」のあるフォルダは作成できないため、削除しておく
+                                                           $"{tja.index}_" + tja.value.FileName.Replace(Path.GetExtension(tja.value.FileName), "").TrimEnd('.', ' '),
+                                                           tja.value.FileName);
                         lines.Add($"SONG:{relativePath}");
                     }
 
@@ -397,21 +402,22 @@ namespace JiroCourseEditor {
                 DirectoryInfo songDInfo = Directory.CreateDirectory(levelDirectory);
 
                 // tjaを1つずつコピーする
-                foreach (var tja in this.TJAs) {
-                    if (tja == null) continue;
-                    var oggInfo = new FileInfo(tja.FullName.Replace(tja.FileName, tja.WAVE));
-                    var tjaInfo = new FileInfo(tja.FullName);
+                foreach (var tja in this.TJAs.Select((value, index) => (value, index))) {
+                    if (tja.value == null) continue;
+                    var oggInfo = new FileInfo(tja.value.FullName.Replace(tja.value.FileName, tja.value.WAVE));
+                    var tjaInfo = new FileInfo(tja.value.FullName);
                     // tja一式出力先フォルダ
-                    // (エクスポート先)\(パック名)\課題曲\(コース名)\(TITLE)
+                    // (エクスポート先)\(パック名)\課題曲\(コース名)\(コース内番号)_(拡張子なしtja名)
                     string outputpath = Path.Combine(levelDirectory,
-                                                     Path.GetFileName(tja.FullName).Replace(Path.GetExtension(tja.FileName), "")
+                                                     // 末尾に「.」や「 」のあるフォルダは作成できないため、削除しておく
+                                                     $"{tja.index}_" + Path.GetFileName(tja.value.FullName).Replace(Path.GetExtension(tja.value.FileName), "").TrimEnd('.', ' ')
                                                      );
                     Directory.CreateDirectory(outputpath);
 
                     // 出力tja
-                    string outputTJApath = Path.Combine(outputpath, tja.FileName);
+                    string outputTJApath = Path.Combine(outputpath, tja.value.FileName);
                     // 出力ogg
-                    string outputOGGpath = Path.Combine(outputpath, tja.WAVE);
+                    string outputOGGpath = Path.Combine(outputpath, tja.value.WAVE);
                     // tja、oggをコピーする
                     var copiedTJA = tjaInfo.CopyTo(outputTJApath, true);
                     oggInfo.CopyTo(outputOGGpath, true);
@@ -443,5 +449,48 @@ namespace JiroCourseEditor {
             }
 
         }
+
+        /// <summary>
+        /// コース名から出来るだけナンバリングを自動設定します(30まで)
+        /// </summary>
+        /// <returns></returns>
+        public static int GetNumByTitle(string TITLE) {
+            // コース名を取得しておく
+            string CName = TITLE;
+            if (CName.Contains("30") || CName.Contains("３０") || CName.Contains("三十") || CName.Contains("参拾") || CName.Contains("参拾")) return 30;
+            if (CName.Contains("29") || CName.Contains("２９") || CName.Contains("二十九") || CName.Contains("弐拾九") || CName.Contains("弐拾玖")) return 29;
+            if (CName.Contains("28") || CName.Contains("２８") || CName.Contains("二十八") || CName.Contains("弐拾八") || CName.Contains("弐拾捌")) return 28;
+            if (CName.Contains("27") || CName.Contains("２７") || CName.Contains("二十七") || CName.Contains("弐拾七") || CName.Contains("弐拾漆")) return 27;
+            if (CName.Contains("26") || CName.Contains("２６") || CName.Contains("二十六") || CName.Contains("弐拾六") || CName.Contains("弐拾陸")) return 26;
+            if (CName.Contains("25") || CName.Contains("２５") || CName.Contains("二十五") || CName.Contains("弐拾五") || CName.Contains("弐拾伍")) return 25;
+            if (CName.Contains("24") || CName.Contains("２４") || CName.Contains("二十四") || CName.Contains("弐拾四") || CName.Contains("弐拾肆")) return 24;
+            if (CName.Contains("23") || CName.Contains("２３") || CName.Contains("二十三") || CName.Contains("弐拾参") || CName.Contains("弐拾参")) return 23;
+            if (CName.Contains("22") || CName.Contains("２２") || CName.Contains("二十二") || CName.Contains("弐拾弐") || CName.Contains("弐拾弐")) return 22;
+            if (CName.Contains("21") || CName.Contains("２１") || CName.Contains("二十一") || CName.Contains("弐拾壱") || CName.Contains("弐拾壱")) return 21;
+            if (CName.Contains("20") || CName.Contains("２０") || CName.Contains("二十") || CName.Contains("弐拾") || CName.Contains("弐拾")) return 20;
+            if (CName.Contains("19") || CName.Contains("１９") || CName.Contains("十九") || CName.Contains("拾九") || CName.Contains("拾玖")) return 19;
+            if (CName.Contains("18") || CName.Contains("１８") || CName.Contains("十八") || CName.Contains("拾八") || CName.Contains("拾捌")) return 18;
+            if (CName.Contains("17") || CName.Contains("１７") || CName.Contains("十七") || CName.Contains("拾七") || CName.Contains("拾漆")) return 17;
+            if (CName.Contains("16") || CName.Contains("１６") || CName.Contains("十六") || CName.Contains("拾六") || CName.Contains("拾陸")) return 16;
+            if (CName.Contains("15") || CName.Contains("１５") || CName.Contains("十五") || CName.Contains("拾五") || CName.Contains("拾伍")) return 15;
+            if (CName.Contains("14") || CName.Contains("１４") || CName.Contains("十四") || CName.Contains("拾四") || CName.Contains("拾肆") || CName.Contains("達人")) return 14;
+            if (CName.Contains("13") || CName.Contains("１３") || CName.Contains("十三") || CName.Contains("拾参") || CName.Contains("超人")) return 13;
+            if (CName.Contains("12") || CName.Contains("１２") || CName.Contains("十二") || CName.Contains("拾弐") || CName.Contains("名人")) return 12;
+            if (CName.Contains("11") || CName.Contains("１１") || CName.Contains("十一") || CName.Contains("拾壱") || CName.Contains("玄人")) return 11;
+            if (CName.Contains("10") || CName.Contains("１０") || CName.Contains("十") || CName.Contains("拾") || CName.Contains("拾")) return 10;
+            if (CName.Contains("9") || CName.Contains("９") || CName.Contains("九") || CName.Contains("九") || CName.Contains("玖")) return 9;
+            if (CName.Contains("8") || CName.Contains("８") || CName.Contains("八") || CName.Contains("八") || CName.Contains("捌")) return 8;
+            if (CName.Contains("7") || CName.Contains("７") || CName.Contains("七") || CName.Contains("七") || CName.Contains("漆")) return 7;
+            if (CName.Contains("6") || CName.Contains("６") || CName.Contains("六") || CName.Contains("六") || CName.Contains("陸")) return 6;
+            if (CName.Contains("5") || CName.Contains("５") || CName.Contains("五") || CName.Contains("五") || CName.Contains("伍")) return 5;
+            if (CName.Contains("4") || CName.Contains("４") || CName.Contains("四") || CName.Contains("四") || CName.Contains("肆")) return 4;
+            if (CName.Contains("3") || CName.Contains("３") || CName.Contains("三") || CName.Contains("参") || CName.Contains("参")) return 3;
+            if (CName.Contains("2") || CName.Contains("２") || CName.Contains("二") || CName.Contains("弐") || CName.Contains("弐")) return 2;
+            if (CName.Contains("1") || CName.Contains("１") || CName.Contains("一") || CName.Contains("壱") || CName.Contains("初")) return 1;
+            return 0;
+
+        }
+
+
     }
 }

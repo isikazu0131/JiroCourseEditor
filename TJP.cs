@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text.Json;
 using System.Windows.Forms;
 using System.IO;
+using System.IO.Compression;
 
 namespace JiroCourseEditor {
 
@@ -120,8 +121,16 @@ namespace JiroCourseEditor {
             if (TJCs.Any(x => String.IsNullOrEmpty(x.Name.Trim()))) {
                 return "コース名が入力されていないコースがあります";
             }
-            if (TJCs.Any(x => x.TJAs.Count() == 0)) {
+            if (TJCs.Any(x => x.TJAs.Count(y => y != null) == 0)) {
                 return "TJAが登録されていないコースがあります";
+            }
+            if (TJCs.Any(x => GrobalMethod.CheckName(x.TJDRed.Name) != "") || TJCs.Any(x => GrobalMethod.CheckName(x.TJDGold.Name) != "")) {
+                return "赤合格名称または金合格名称に使用できない文字列が含まれています\r\n" +
+                       "（使用できない文字：'\\', '/', ':', '*', '?', '\"', ' < ', ' > ', ' | '）";
+            }
+            if(this.Name.Contains("//") || TJCs.Any(x => x.Name.Contains("//"))) {
+                return "パック名またはコース名に使用できない文字列が含まれています\r\n" +
+                       "（使用できない文字列：\"//\"）";
             }
             return "";
         }
@@ -139,12 +148,13 @@ namespace JiroCourseEditor {
             }
 
             if (String.IsNullOrEmpty(setting.PackOutputFolderName)) {
-                MessageBox.Show("出力先フォルダが設定されていません", "ざんねん", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("出力先フォルダが設定されていません。\r\n" +
+                                "上部メニュー＞「設定」＞「パックを出力するフォルダの設定」より設定を行ってください。", "ざんねん", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // tjpを出力するフォルダ(完全パス)
-            var OutputTJPDPath = Path.Combine(setting.PackOutputFolderName, tjp.Name);
+            var OutputTJPDPath = Path.Combine(setting.PackOutputFolderName, GrobalMethod.CutInvalidChar(tjp.Name));
             DirectoryInfo OutputTJPDInfo = new DirectoryInfo(OutputTJPDPath);
 
             // すでにエクスポートされたパックが存在していた場合
@@ -189,7 +199,7 @@ namespace JiroCourseEditor {
             if (GenreIni.Write(OutputTJPDInfo.FullName, tjp.Name, tjp.PackFolderBackColor, tjp.PackFolderForeColor) == false ||
                 GenreIni.Write(courseDInfo.FullName, "段位", tjp.CourseFolderBackColor, tjp.CourseFolderForeColor) == false ||
                 GenreIni.Write(songDInfo.FullName, "課題曲", tjp.SongFolderBackColor, tjp.SongFolderForeColor) == false) {
-                MessageBox.Show("Genre.iniの作成に失敗しました",
+                MessageBox.Show("Genre.iniの作成に失敗しました。",
                                 "ざんねん",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
@@ -199,6 +209,11 @@ namespace JiroCourseEditor {
             // TJC1つずつに対して処理を行う
             foreach (var tjc in tjp.TJCs) {
                 tjc.Export(tjp.Name, OutputTJPDInfo);
+            }
+
+            // 圧縮処理を行う
+            if (isZip) {
+                CompressTJP(OutputTJPDPath);
             }
 
             return true;
@@ -235,6 +250,20 @@ namespace JiroCourseEditor {
             catch (Exception ex) {
                 MessageBox.Show($"テンプレートの作成に失敗しました。:{ex}");
                 return null;
+            }
+        }
+
+        private static bool CompressTJP(string tjpDFullname) {
+            try {
+                string tjpZipFullname = tjpDFullname + ".zip";
+                ZipFile.CreateFromDirectory(tjpDFullname, tjpZipFullname, CompressionLevel.Fastest, false, Encoding.GetEncoding("Shift_jis"));
+                return true;
+            }
+            catch(Exception e){
+                MessageBox.Show($"パックの圧縮に失敗しました。\r\n" +
+                                $"{e.Message}",
+                                "ざんねん");
+                return false;
             }
         }
     }

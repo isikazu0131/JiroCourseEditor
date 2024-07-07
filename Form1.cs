@@ -48,10 +48,9 @@ namespace JiroCourseEditor {
         private TJA[] TJAs = new TJA[5];
 
         /// <summary>
-        /// テキストボックスが実際に変更されたか
-        /// ※選択ノード変更によるテキストボックス変更でないか
+        /// 画面内の情報をUIが書き換えているかどうか
         /// </summary>
-        private bool isTextChangeing = false;
+        private bool FlagChangeByUI = false;
 
         /// <summary>
         /// 閾値変更用フラグ
@@ -59,9 +58,9 @@ namespace JiroCourseEditor {
         private bool FlagThresholdEdit = false;
 
         /// <summary>
-        /// パック名TextBox編集用フラグ
+        /// 比率変更用フラグ
         /// </summary>
-        private bool FlagTbPackNameEdit = false;
+        private bool FlagRatioEdit = false;
 
         /// <summary>
         /// 現在のファイルが保存されているか
@@ -72,6 +71,11 @@ namespace JiroCourseEditor {
         /// 現在選択しているTJCが何番目か
         /// </summary>
         private int nowTJCindex = 0;
+
+        /// <summary>
+        /// 現在赤合格を選択しているか
+        /// </summary>
+        private bool isRed = true;
 
         /// <summary>
         /// テストプレイ時に生成されたTJC
@@ -169,9 +173,9 @@ namespace JiroCourseEditor {
                     LbPackSize.Text = (nowTJP.TJCs.Sum(x => (double)x.GetTJAsSize()) / 1024 / 1024).ToString("0.00") + " MB";
 
                     // 内部から変更するためTbPackName変更メソッドは通らない
-                    FlagTbPackNameEdit = true;
+                    FlagChangeByUI = true;
                     TbPackName.Text = nowTJP.Name;
-                    FlagTbPackNameEdit = false;
+                    FlagChangeByUI = false;
 
                     FormTitleChange();
                     break;
@@ -180,7 +184,7 @@ namespace JiroCourseEditor {
                     TrPack.SelectedNode = selectedNode;
 
                     // 一時的にテキストボックスの変更モードを選択ノード変更によるモードに移す
-                    isTextChangeing = false;
+                    FlagChangeByUI = true;
                     nowTJCindex = TrPack.SelectedNode.Index;
                     nowTJC = nowTJP.TJCs[nowTJCindex];
 
@@ -195,7 +199,7 @@ namespace JiroCourseEditor {
                     PanelCourse.Visible = true;
 
                     // テキストボックスの変更モードを元に戻す
-                    isTextChangeing = true;
+                    FlagChangeByUI = false;
 
                     FormTitleChange();
                     break;
@@ -208,11 +212,11 @@ namespace JiroCourseEditor {
         }
 
         /// <summary>
-        /// パックツリーを選択した際の処理
+        /// パックツリーの選択ノードが変更された場合の処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TrPack_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e) {
+        private void TrPack_AfterSelect(object sender, TreeViewEventArgs e) {
             ChangeMenuByTrTJPSelectedNode(e.Node);
         }
 
@@ -222,7 +226,7 @@ namespace JiroCourseEditor {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TbPackName_TextChanged(object sender, EventArgs e) {
-            if (FlagTbPackNameEdit == true) return;
+            if (FlagChangeByUI == true) return;
             var PackNode = TrPack.SelectedNode;
             if (PackNode != null) {
                 PackNode.Text = TbPackName.Text;
@@ -238,59 +242,20 @@ namespace JiroCourseEditor {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TbCourseName_TextChanged(object sender, EventArgs e) {
-            if (!isTextChangeing) return;
+            if (FlagChangeByUI) return;
             if (TrPack.SelectedNode.Level == 0) return;
             var PackNode = TrPack.SelectedNode;
             if (PackNode != null) {
-                PackNode.Text = TbCourseName.Text;
-                NmNumbering.Value = GetNumForCourseNum();
 
                 nowTJP.TJCs[nowTJCindex].Name = TbCourseName.Text;
-                nowTJP.TJCs[nowTJCindex].Number = (int)NmNumbering.Value;
+                nowTJP.TJCs[nowTJCindex].Number = TJC.GetNumByTitle(nowTJP.TJCs[nowTJCindex].Name);
+
+                PackNode.Text = nowTJP.TJCs[nowTJCindex].Name;
+                NmNumbering.Value = nowTJP.TJCs[nowTJCindex].Number;
+
             }
             isSaved = false;
             FormTitleChange();
-        }
-
-        /// <summary>
-        /// コース名から出来るだけナンバリングを自動設定します(30まで)
-        /// </summary>
-        /// <returns></returns>
-        private int GetNumForCourseNum() {
-            // コース名を取得しておく
-            string CName = TbCourseName.Text;
-            if (CName.Contains("30") || CName.Contains("３０") || CName.Contains("三十")   || CName.Contains("参拾")   || CName.Contains("参拾")) return 30;
-            if (CName.Contains("29") || CName.Contains("２９") || CName.Contains("二十九") || CName.Contains("弐拾九") || CName.Contains("弐拾玖")) return 29;
-            if (CName.Contains("28") || CName.Contains("２８") || CName.Contains("二十八") || CName.Contains("弐拾八") || CName.Contains("弐拾捌")) return 28;
-            if (CName.Contains("27") || CName.Contains("２７") || CName.Contains("二十七") || CName.Contains("弐拾七") || CName.Contains("弐拾漆")) return 27;
-            if (CName.Contains("26") || CName.Contains("２６") || CName.Contains("二十六") || CName.Contains("弐拾六") || CName.Contains("弐拾陸")) return 26;
-            if (CName.Contains("25") || CName.Contains("２５") || CName.Contains("二十五") || CName.Contains("弐拾五") || CName.Contains("弐拾伍")) return 25;
-            if (CName.Contains("24") || CName.Contains("２４") || CName.Contains("二十四") || CName.Contains("弐拾四") || CName.Contains("弐拾肆")) return 24;
-            if (CName.Contains("23") || CName.Contains("２３") || CName.Contains("二十三") || CName.Contains("弐拾参") || CName.Contains("弐拾参")) return 23;
-            if (CName.Contains("22") || CName.Contains("２２") || CName.Contains("二十二") || CName.Contains("弐拾弐") || CName.Contains("弐拾弐")) return 22;
-            if (CName.Contains("21") || CName.Contains("２１") || CName.Contains("二十一") || CName.Contains("弐拾壱") || CName.Contains("弐拾壱")) return 21;
-            if (CName.Contains("20") || CName.Contains("２０") || CName.Contains("二十")   || CName.Contains("弐拾")   || CName.Contains("弐拾")) return 20;
-            if (CName.Contains("19") || CName.Contains("１９") || CName.Contains("十九")   || CName.Contains("拾九")   || CName.Contains("拾玖")) return 19;
-            if (CName.Contains("18") || CName.Contains("１８") || CName.Contains("十八")   || CName.Contains("拾八")   || CName.Contains("拾捌")) return 18;
-            if (CName.Contains("17") || CName.Contains("１７") || CName.Contains("十七")   || CName.Contains("拾七")   || CName.Contains("拾漆")) return 17;
-            if (CName.Contains("16") || CName.Contains("１６") || CName.Contains("十六")   || CName.Contains("拾六")   || CName.Contains("拾陸")) return 16;
-            if (CName.Contains("15") || CName.Contains("１５") || CName.Contains("十五")   || CName.Contains("拾五")   || CName.Contains("拾伍")) return 15;
-            if (CName.Contains("14") || CName.Contains("１４") || CName.Contains("十四")   || CName.Contains("拾四")   || CName.Contains("拾肆") || CName.Contains("達人")) return 14;
-            if (CName.Contains("13") || CName.Contains("１３") || CName.Contains("十三")   || CName.Contains("拾参")   || CName.Contains("超人")) return 13;
-            if (CName.Contains("12") || CName.Contains("１２") || CName.Contains("十二")   || CName.Contains("拾弐")   || CName.Contains("名人")) return 12;
-            if (CName.Contains("11") || CName.Contains("１１") || CName.Contains("十一")   || CName.Contains("拾壱")   || CName.Contains("玄人")) return 11;
-            if (CName.Contains("10") || CName.Contains("１０") || CName.Contains("十")     || CName.Contains("拾")     || CName.Contains("拾")) return 10;
-            if (CName.Contains("9")  || CName.Contains("９")   || CName.Contains("九")     || CName.Contains("九")     || CName.Contains("玖")) return 9;
-            if (CName.Contains("8")  || CName.Contains("８")   || CName.Contains("八")     || CName.Contains("八")     || CName.Contains("捌")) return 8;
-            if (CName.Contains("7")  || CName.Contains("７")   || CName.Contains("七")     || CName.Contains("七")     || CName.Contains("漆")) return 7;
-            if (CName.Contains("6")  || CName.Contains("６")   || CName.Contains("六")     || CName.Contains("六")     || CName.Contains("陸")) return 6;
-            if (CName.Contains("5")  || CName.Contains("５")   || CName.Contains("五")     || CName.Contains("五")     || CName.Contains("伍")) return 5;
-            if (CName.Contains("4")  || CName.Contains("４")   || CName.Contains("四")     || CName.Contains("四")     || CName.Contains("肆")) return 4;
-            if (CName.Contains("3")  || CName.Contains("３")   || CName.Contains("三")     || CName.Contains("参")     || CName.Contains("参")) return 3;
-            if (CName.Contains("2")  || CName.Contains("２")   || CName.Contains("二")     || CName.Contains("弐")     || CName.Contains("弐")) return 2;
-            if (CName.Contains("1")  || CName.Contains("１")   || CName.Contains("一")     || CName.Contains("壱")     || CName.Contains("初")) return 1;
-            return 1;
-
         }
 
         /// <summary>
@@ -314,6 +279,7 @@ namespace JiroCourseEditor {
         private void AddNewTJC(string TITLE) {
             TJC tjc = new TJC();
             tjc.Name = TITLE;
+            tjc.Number = TJC.GetNumByTitle(TITLE);
             nowTJP.TJCs.Add(tjc);
             nowTJC = tjc;
             isSaved = false;
@@ -403,6 +369,9 @@ namespace JiroCourseEditor {
         /// 現在のTJCを画面上に表示します
         /// </summary>
         private void SetTJCToView(bool isCreatedNewTJC) {
+
+            // ここではUIが画面上のパラメータをいじるフラグが立っている
+
             TbTJA1.Text = "";
             LbNotesCount1.Text = "0";
             LbLevel1.Text = "0.0";
@@ -455,7 +424,11 @@ namespace JiroCourseEditor {
 
             // 画面上のUIを更新する
             // ナンバリング更新
-            NmNumbering.Value = GetNumForCourseNum();
+            if(FlagChangeByUI == false) {
+                NmNumbering.Value = TJC.GetNumByTitle(nowTJC.Name);
+            } else {
+                NmNumbering.Value = nowTJC.Number;
+            }
 
             // フォルダカラー
             LbLevelColorView.BackColor = ColorInfo.GetColor(nowTJC.LevelBackColor);
@@ -488,8 +461,11 @@ namespace JiroCourseEditor {
                 NmThreshold3.Value = nowTJC.TJDRed.PassingConditions[2].Threshold;
                 NmRatio3.Value = (decimal)nowTJC.TJDRed.PassingConditions[2].Ratio * 100;
             }
+            NmLife.Value = nowTJC.Life;
+
             UpdateThresholdByRatio();
             CbUseCondition.Checked = nowTJC.isTJDEnabled;
+            CbTitleInvisible.Checked = nowTJC.IsTitleHide;
             TbCourseName.Text = nowTJC.Name;
             LbCourseNotes.Text = nowTJC.TotalNoteCount().ToString();
             LbCourseTime.Text = ToMinSec(nowTJC.TotalOggTime());
@@ -947,9 +923,11 @@ namespace JiroCourseEditor {
                 e.Cancel = true;
             }
 
+            // テスト用に作ったtjcの削除
             if (setting.IsTestTJCDelete) {
                 foreach (var tjc in TestTJCs) {
                     if (tjc == null) continue;
+                    if (tjc.Exists == false) continue;
                     tjc.Delete();
                 }
             }
@@ -964,7 +942,10 @@ namespace JiroCourseEditor {
         private void Form1_KeyDown(object sender, KeyEventArgs e) {
             if (e.Control && e.KeyCode == Keys.S) {
                 SaveTJP();
+            } else if(e.KeyCode == Keys.Up || e.KeyCode == Keys.Down) {
+
             }
+            
         }
         #endregion
 
@@ -996,7 +977,15 @@ namespace JiroCourseEditor {
         #endregion
 
         private void ヘルプToolStripMenuItem_Click(object sender, EventArgs e) {
-            MessageBox.Show("助けて～");
+            Random random = new Random();
+            var rand = random.Next(1, 1000);
+            if(rand != 1) {
+                MessageBox.Show("助けて～");
+            } else {
+                MessageBox.Show("このウィンドウは0.1%の確率で表示されています\r\n" +
+                                "ラッキーですね～",
+                                "ラッキーウィンドウ");
+            }
         }
 
         /// <summary>
@@ -1065,7 +1054,7 @@ namespace JiroCourseEditor {
         /// <param name="LbMoreLess"></param>
         /// <param name="NmRatio"></param>
         /// <param name="LbPer"></param>
-        private void ConditionSetting(ComboBox cbCondition, NumericUpDown NmThreshold, Label LbMoreLess, NumericUpDown NmRatio, Label LbPer) {
+        private void ConditionSetting(ComboBox cbCondition, NumericUpDown NmThreshold, Label LbMoreLess, NumericUpDown NmRatio, Label LbPer, int index) {
             switch (cbCondition.SelectedItem) {
                 case "なし":
                     NmThreshold.Enabled = false;
@@ -1074,6 +1063,8 @@ namespace JiroCourseEditor {
                     NmRatio.Value = 0;
                     NmRatio.Visible = false;
                     LbPer.Visible = false;
+                    if (isRed) nowTJC.TJDRed.PassingConditions[index].passingType = PassingType.None;
+                    else nowTJC.TJDGold.PassingConditions[index].passingType = PassingType.None;
                     break;
                 case "スコア":
                     NmThreshold.Enabled = true;
@@ -1083,6 +1074,8 @@ namespace JiroCourseEditor {
                     NmRatio.Value = 0;
                     NmRatio.Visible = false;
                     LbPer.Visible = false;
+                    if (isRed) nowTJC.TJDRed.PassingConditions[index].passingType = PassingType.Score;
+                    else nowTJC.TJDGold.PassingConditions[index].passingType = PassingType.Score;
                     break;
                 case "良の数":
                     NmThreshold.Enabled = true;
@@ -1092,6 +1085,8 @@ namespace JiroCourseEditor {
                     NmRatio.Value = 0;
                     NmRatio.Visible = true;
                     LbPer.Visible = true;
+                    if (isRed) nowTJC.TJDRed.PassingConditions[index].passingType = PassingType.GreatCount;
+                    else nowTJC.TJDGold.PassingConditions[index].passingType = PassingType.GreatCount;
                     break;
                 case "可の数":
                     NmThreshold.Enabled = true;
@@ -1101,6 +1096,8 @@ namespace JiroCourseEditor {
                     NmRatio.Value = 0;
                     NmRatio.Visible = true;
                     LbPer.Visible = true;
+                    if (isRed) nowTJC.TJDRed.PassingConditions[index].passingType = PassingType.GoodCount;
+                    else nowTJC.TJDGold.PassingConditions[index].passingType = PassingType.GoodCount;
                     break;
                 case "不可の数":
                     NmThreshold.Enabled = true;
@@ -1110,6 +1107,8 @@ namespace JiroCourseEditor {
                     NmRatio.Value = 0;
                     NmRatio.Visible = true;
                     LbPer.Visible = true;
+                    if (isRed) nowTJC.TJDRed.PassingConditions[index].passingType = PassingType.BadCount;
+                    else nowTJC.TJDGold.PassingConditions[index].passingType = PassingType.BadCount;
                     break;
                 case "連打数":
                     NmThreshold.Enabled = true;
@@ -1119,6 +1118,8 @@ namespace JiroCourseEditor {
                     NmRatio.Value = 0;
                     NmRatio.Visible = false;
                     LbPer.Visible = false;
+                    if (isRed) nowTJC.TJDRed.PassingConditions[index].passingType = PassingType.RoleCount;
+                    else nowTJC.TJDGold.PassingConditions[index].passingType = PassingType.RoleCount;
                     break;
                 case "最大コンボ数":
                     NmThreshold.Enabled = true;
@@ -1128,6 +1129,8 @@ namespace JiroCourseEditor {
                     NmRatio.Value = 0;
                     NmRatio.Visible = false;
                     LbPer.Visible = false;
+                    if (isRed) nowTJC.TJDRed.PassingConditions[index].passingType = PassingType.MaxCombo;
+                    else nowTJC.TJDGold.PassingConditions[index].passingType = PassingType.MaxCombo;
                     break;
                 case "叩けた数":
                     NmThreshold.Enabled = true;
@@ -1137,6 +1140,8 @@ namespace JiroCourseEditor {
                     NmRatio.Value = 0;
                     NmRatio.Visible = false;
                     LbPer.Visible = false;
+                    if (isRed) nowTJC.TJDRed.PassingConditions[index].passingType = PassingType.HitCount;
+                    else nowTJC.TJDGold.PassingConditions[index].passingType = PassingType.HitCount;
                     break;
                 default:
                     break;
@@ -1147,7 +1152,8 @@ namespace JiroCourseEditor {
                              NmThreshold1,
                              LbMoreLess1,
                              NmRatio1,
-                             LbPer1);
+                             LbPer1,
+                             0);
         }
 
         private void CbCondition2_SelectedIndexChanged(object sender, EventArgs e) {
@@ -1155,7 +1161,8 @@ namespace JiroCourseEditor {
                              NmThreshold2,
                              LbMoreLess2,
                              NmRatio2,
-                             LbPer2);
+                             LbPer2,
+                             1);
         }
 
         private void CbCondition3_SelectedIndexChanged(object sender, EventArgs e) {
@@ -1163,7 +1170,8 @@ namespace JiroCourseEditor {
                              NmThreshold3,
                              LbMoreLess3,
                              NmRatio3,
-                             LbPer3);
+                             LbPer3,
+                             2);
         }
         #endregion
 
@@ -1176,23 +1184,44 @@ namespace JiroCourseEditor {
             if (nowTJC == null) return;
             // 赤合格
             if(CbRedOrGold.SelectedIndex == 0) {
+                isRed = true;
                 TbConditionName.Text = nowTJC.TJDRed.Name;
                 CbCondition1.SelectedIndex = (int)nowTJC.TJDRed.PassingConditions[0].passingType;
                 CbCondition2.SelectedIndex = (int)nowTJC.TJDRed.PassingConditions[1].passingType;
                 CbCondition3.SelectedIndex = (int)nowTJC.TJDRed.PassingConditions[2].passingType;
+
+                FlagThresholdEdit = true;
+                NmThreshold1.Value = (decimal)(nowTJC.TJDRed.PassingConditions[0].Threshold);
+                NmThreshold2.Value = (decimal)(nowTJC.TJDRed.PassingConditions[1].Threshold);
+                NmThreshold3.Value = (decimal)(nowTJC.TJDRed.PassingConditions[2].Threshold);
+                FlagThresholdEdit = false;
+
+                FlagRatioEdit = true;
                 NmRatio1.Value = (decimal)(nowTJC.TJDRed.PassingConditions[0].Ratio * 100);
                 NmRatio2.Value = (decimal)(nowTJC.TJDRed.PassingConditions[1].Ratio * 100);
                 NmRatio3.Value = (decimal)(nowTJC.TJDRed.PassingConditions[2].Ratio * 100);
-            } 
+                FlagRatioEdit = false;
+
+            }
             // 金合格
             else {
+                isRed = false;
                 TbConditionName.Text = nowTJC.TJDGold.Name;
                 CbCondition1.SelectedIndex = (int)nowTJC.TJDGold.PassingConditions[0].passingType;
                 CbCondition2.SelectedIndex = (int)nowTJC.TJDGold.PassingConditions[1].passingType;
                 CbCondition3.SelectedIndex = (int)nowTJC.TJDGold.PassingConditions[2].passingType;
+
+                FlagThresholdEdit = true;
+                NmThreshold1.Value = (decimal)(nowTJC.TJDGold.PassingConditions[0].Threshold);
+                NmThreshold2.Value = (decimal)(nowTJC.TJDGold.PassingConditions[1].Threshold);
+                NmThreshold3.Value = (decimal)(nowTJC.TJDGold.PassingConditions[2].Threshold);
+                FlagThresholdEdit = false;
+
+                FlagRatioEdit = true;
                 NmRatio1.Value = (decimal)(nowTJC.TJDGold.PassingConditions[0].Ratio * 100);
                 NmRatio2.Value = (decimal)(nowTJC.TJDGold.PassingConditions[1].Ratio * 100);
                 NmRatio3.Value = (decimal)(nowTJC.TJDGold.PassingConditions[2].Ratio * 100);
+                FlagRatioEdit = false;
             }
         }
 
@@ -1202,6 +1231,7 @@ namespace JiroCourseEditor {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CbUseCondition_CheckedChanged(object sender, EventArgs e) {
+            if (FlagChangeByUI == true) return;
             if (nowTJC.isTJDEnabled) nowTJC.isTJDEnabled = false;
             else nowTJC.isTJDEnabled = true;
         }
@@ -1213,6 +1243,7 @@ namespace JiroCourseEditor {
         /// <param name="e"></param>
         private void BtTestPlay_Click(object sender, EventArgs e) {
             var testTJCFInfo = nowTJC.TestPlay();
+            if (testTJCFInfo == null) return;
             TestTJCs.Add(testTJCFInfo);
         }
 
@@ -1241,6 +1272,7 @@ namespace JiroCourseEditor {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TbConditionName_TextChanged(object sender, EventArgs e) {
+            if(FlagChangeByUI) return;
             // 赤合格の名称変更
             if(CbRedOrGold.SelectedIndex == 0) {
                 foreach(var tjc in nowTJP.TJCs) {
@@ -1259,21 +1291,48 @@ namespace JiroCourseEditor {
         /// 合格条件の閾値を更新します
         /// </summary>
         private void UpdateThresholdByRatio() {
+            if (FlagRatioEdit == true) {
+                return;
+            }
             FlagThresholdEdit = true;
+            var notesCount = nowTJC.TotalNoteCount();
+            if (notesCount == 0) return;
             if ((string)CbCondition1.SelectedItem != "スコア" &&
                 (string)CbCondition1.SelectedItem != "連打数" &&
                 (string)CbCondition1.SelectedItem != "たたけた数") {
                 NmThreshold1.Value = Math.Round(nowTJC.TotalNoteCount() * (NmRatio1.Value / 100), 0);
+                if (isRed) {
+                    nowTJC.TJDRed.PassingConditions[0].Threshold = (int)NmThreshold1.Value;
+                    nowTJC.TJDRed.PassingConditions[0].Ratio = (double)Math.Round(NmThreshold1.Value / notesCount, 3);
+                } else {
+                    nowTJC.TJDGold.PassingConditions[0].Threshold = (int)NmThreshold1.Value;
+                    nowTJC.TJDGold.PassingConditions[0].Ratio = (double)Math.Round(NmThreshold1.Value / notesCount, 3);
+                }
             }
             if ((string)CbCondition2.SelectedItem != "スコア" &&
                 (string)CbCondition2.SelectedItem != "連打数" &&
                 (string)CbCondition2.SelectedItem != "たたけた数") {
                 NmThreshold2.Value = Math.Round(nowTJC.TotalNoteCount() * (NmRatio2.Value / 100), 0);
+                NmRatio2.Value = Math.Round(NmThreshold2.Value / nowTJC.TotalNoteCount() * 100, 1);
+                if (isRed) {
+                    nowTJC.TJDRed.PassingConditions[1].Threshold = (int)NmThreshold2.Value;
+                    nowTJC.TJDRed.PassingConditions[1].Ratio = (double)Math.Round(NmThreshold2.Value / notesCount, 3);
+                } else {
+                    nowTJC.TJDGold.PassingConditions[1].Threshold = (int)NmThreshold2.Value;
+                    nowTJC.TJDGold.PassingConditions[1].Ratio = (double)Math.Round(NmThreshold2.Value / notesCount, 3);
+                }
             }
             if ((string)CbCondition3.SelectedItem != "スコア" &&
                 (string)CbCondition3.SelectedItem != "連打数" &&
                 (string)CbCondition3.SelectedItem != "たたけた数") {
                 NmThreshold3.Value = Math.Round(nowTJC.TotalNoteCount() * (NmRatio3.Value / 100), 0);
+                if (isRed) {
+                    nowTJC.TJDRed.PassingConditions[2].Threshold = (int)NmThreshold3.Value;
+                    nowTJC.TJDRed.PassingConditions[2].Ratio = (double)Math.Round(NmThreshold3.Value / notesCount, 3);
+                } else {
+                    nowTJC.TJDGold.PassingConditions[2].Threshold = (int)NmThreshold3.Value;
+                    nowTJC.TJDGold.PassingConditions[2].Ratio = (double)Math.Round(NmThreshold3.Value / notesCount, 3);
+                }
             }
             FlagThresholdEdit = false;
         }
@@ -1283,6 +1342,7 @@ namespace JiroCourseEditor {
         /// </summary>
         private void UpdateRatioByThreshold() {
             if (FlagThresholdEdit == true) return;
+            FlagRatioEdit = true;
             var notesCount = nowTJC.TotalNoteCount();
             if (notesCount == 0) return;
 
@@ -1290,17 +1350,39 @@ namespace JiroCourseEditor {
                 (string)CbCondition1.SelectedItem != "連打数" &&
                 (string)CbCondition1.SelectedItem != "たたけた数") {
                 NmRatio1.Value = Math.Round(NmThreshold1.Value / notesCount * 100, 1);
+                if(isRed) {
+                    nowTJC.TJDRed.PassingConditions[0].Ratio = (double)Math.Round(NmThreshold1.Value / notesCount, 3);
+                    nowTJC.TJDRed.PassingConditions[0].Threshold = (int)NmThreshold1.Value;
+                } else {
+                    nowTJC.TJDGold.PassingConditions[0].Ratio = (double)Math.Round(NmThreshold1.Value / notesCount, 3);
+                    nowTJC.TJDGold.PassingConditions[0].Threshold = (int)NmThreshold1.Value;
+                }
             }
             if ((string)CbCondition2.SelectedItem != "スコア" &&
                 (string)CbCondition2.SelectedItem != "連打数" &&
                 (string)CbCondition2.SelectedItem != "たたけた数") {
                 NmRatio2.Value = Math.Round(NmThreshold2.Value / nowTJC.TotalNoteCount() * 100, 1);
+                if (isRed) {
+                    nowTJC.TJDRed.PassingConditions[1].Ratio = (double)Math.Round(NmThreshold2.Value / notesCount, 3);
+                    nowTJC.TJDRed.PassingConditions[1].Threshold = (int)NmThreshold2.Value;
+                } else {
+                    nowTJC.TJDGold.PassingConditions[1].Ratio = (double)Math.Round(NmThreshold2.Value / notesCount, 3);
+                    nowTJC.TJDGold.PassingConditions[1].Threshold = (int)NmThreshold2.Value;
+                }
             }
             if ((string)CbCondition3.SelectedItem != "スコア" &&
                 (string)CbCondition3.SelectedItem != "連打数" &&
                 (string)CbCondition3.SelectedItem != "たたけた数") {
                 NmRatio3.Value = Math.Round(NmThreshold3.Value / nowTJC.TotalNoteCount() * 100, 1);
+                if (isRed) {
+                    nowTJC.TJDRed.PassingConditions[2].Ratio = (double)Math.Round(NmThreshold3.Value / notesCount, 3);
+                    nowTJC.TJDRed.PassingConditions[2].Threshold = (int)NmThreshold3.Value;
+                } else {
+                    nowTJC.TJDGold.PassingConditions[2].Ratio = (double)Math.Round(NmThreshold3.Value / notesCount, 3);
+                    nowTJC.TJDGold.PassingConditions[2].Threshold = (int)NmThreshold3.Value;
+                }
             }
+            FlagRatioEdit = false;
         }
 
         private void NmThreshold1_ValueChanged(object sender, EventArgs e) {
@@ -1329,6 +1411,7 @@ namespace JiroCourseEditor {
         #endregion
 
         private void CbTitleInvisible_CheckedChanged(object sender, EventArgs e) {
+            if (FlagChangeByUI == true) return;
             nowTJP.TJCs[nowTJCindex].IsTitleHide = CbTitleInvisible.Checked;
         }
 
@@ -1337,11 +1420,22 @@ namespace JiroCourseEditor {
         }
 
         private void NmNumbering_ValueChanged(object sender, EventArgs e) {
+            if (FlagChangeByUI == true) return;
             nowTJP.TJCs[nowTJCindex].Number = (int)NmNumbering.Value;
         }
 
         private void CbIsTestTJCDelete_CheckedChanged(object sender, EventArgs e) {
             setting.IsTestTJCDelete = CbIsTestTJCDelete.Checked;
+        }
+
+        private void NmLife_ValueChanged(object sender, EventArgs e) {
+            if (FlagChangeByUI == true) return;
+            nowTJP.TJCs[nowTJCindex].Life = (int)NmNumbering.Value;
+        }
+
+        private void このアプリについての情報ToolStripMenuItem_Click(object sender, EventArgs e) {
+            AppInfoDialog aInfoDialog = new AppInfoDialog();
+            if (aInfoDialog.ShowDialog() == DialogResult.OK) { }
         }
     }
 }

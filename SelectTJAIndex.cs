@@ -27,6 +27,8 @@ namespace JiroCourseEditor {
         private void SelectTJAIndex_Load(object sender, EventArgs e) {
             errorDialog = new ErrorDialog();
             CbTJANum.SelectedIndex = 0;
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
         }
 
         private void BtOK_Click(object sender, EventArgs e) {

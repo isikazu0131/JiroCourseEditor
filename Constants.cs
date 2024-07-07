@@ -23,7 +23,9 @@ namespace JiroCourseEditor {
             /// <summary>
             /// バージョン
             /// </summary>
-            public const string Version = "V2.0.0";
+            public const string Version = "V1.9.3";
+
+            public const string GitHubLink = "https://github.com/isikazu0131/JiroCourseEditor";
         }
 
         /// <summary>
