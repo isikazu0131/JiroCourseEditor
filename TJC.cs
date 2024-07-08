@@ -359,6 +359,7 @@ namespace JiroCourseEditor {
                 
                 // ナンバリングした数値
                 string numberedTJCName = IsNumberingEnable ? $"{this.Number.ToString("000")} {this.Name}" : this.Name;
+                numberedTJCName = GrobalMethod.CutInvalidChar(numberedTJCName);
                 // tjcファイルの完全パス
                 // (エクスポート先)\(パック名)\段位\(コース名).tjc
                 string tjcPath = Path.Combine(packDInfo.FullName,
