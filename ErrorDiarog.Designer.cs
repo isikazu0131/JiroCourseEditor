@@ -1,4 +1,4 @@
-﻿namespace JiroCourseEditor {
+﻿namespace JiroPackEditor {
     partial class ErrorDialog {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             // LbError
             // 
             this.LbError.BackColor = System.Drawing.Color.Transparent;
-            this.LbError.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LbError.Font = new System.Drawing.Font("MS UI Gothic", 25F);
             this.LbError.Location = new System.Drawing.Point(12, 9);
             this.LbError.Name = "LbError";
             this.LbError.Size = new System.Drawing.Size(497, 314);
@@ -44,7 +44,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::JiroCourseEditor.Properties.Resources.ng;
+            this.pictureBox1.Image = global::JiroPackEditor.Properties.Resources.ng;
             this.pictureBox1.Location = new System.Drawing.Point(12, 221);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(606, 345);
@@ -65,7 +65,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::JiroCourseEditor.Properties.Resources.ng;
+            this.pictureBox2.Image = global::JiroPackEditor.Properties.Resources.ng;
             this.pictureBox2.Location = new System.Drawing.Point(436, -7);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(483, 299);

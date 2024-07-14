@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     public partial class Form1 : Form {
         /// <summary>
         /// 設定情報
@@ -82,8 +82,11 @@ namespace JiroCourseEditor {
         /// </summary>
         private List<FileInfo> TestTJCs = new List<FileInfo>();
 
-        public Form1() {
+        public Form1(string[] args) {
             InitializeComponent();
+            if (args.Length != 0) {
+                NowOpeningFilePath = args[0];
+            }
         }
 
         /// <summary>
@@ -92,19 +95,31 @@ namespace JiroCourseEditor {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e) {
+            // アプリケーションの実行時にカレントディレクトリを変更する
+            string appDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+            Directory.SetCurrentDirectory(appDirectory);
+
             setting = Setting.Read();
             CbIsTestTJCDelete.Checked = setting.IsTestTJCDelete;
             errorDialog = new ErrorDialog();
             selectTJAIndexDialog = new SelectTJAIndex();
-            nowTJP = new TJP();
-            nowTJP.Name = Constants.TJPDefault.Name;
+            if (String.IsNullOrEmpty(NowOpeningFilePath)) {
+                nowTJP = new TJP();
+                nowTJP.Name = Constants.TJPDefault.Name;
 
-            nowTJP.PackFolderBackColor = ColorInfo.GetColorCode(Constants.TJPDefault.PackBackColor);
-            nowTJP.PackFolderForeColor = ColorInfo.GetColorCode(Constants.TJPDefault.PackForeColor);
-            nowTJP.CourseFolderBackColor = ColorInfo.GetColorCode(Constants.TJPDefault.CourseBackColor);
-            nowTJP.CourseFolderForeColor = ColorInfo.GetColorCode(Constants.TJPDefault.CourseForeColor);
-            nowTJP.SongFolderBackColor = ColorInfo.GetColorCode(Constants.TJPDefault.SongBackColor);
-            nowTJP.SongFolderForeColor = ColorInfo.GetColorCode(Constants.TJPDefault.SongForeColor);
+                nowTJP.PackFolderBackColor = ColorInfo.GetColorCode(Constants.TJPDefault.PackBackColor);
+                nowTJP.PackFolderForeColor = ColorInfo.GetColorCode(Constants.TJPDefault.PackForeColor);
+                nowTJP.CourseFolderBackColor = ColorInfo.GetColorCode(Constants.TJPDefault.CourseBackColor);
+                nowTJP.CourseFolderForeColor = ColorInfo.GetColorCode(Constants.TJPDefault.CourseForeColor);
+                nowTJP.SongFolderBackColor = ColorInfo.GetColorCode(Constants.TJPDefault.SongBackColor);
+                nowTJP.SongFolderForeColor = ColorInfo.GetColorCode(Constants.TJPDefault.SongForeColor);
+            } else {
+                OpenPackFile();
+            }
+
+            if (nowTJP == null) {
+                this.Close();
+            }
 
             this.Text = $"{nowTJP.Name}{Constants.Extention.TJP} - {Constants.AppInfo.Name} {Constants.AppInfo.Version}";
             this.AllowDrop = true;
@@ -306,7 +321,13 @@ namespace JiroCourseEditor {
                     TJAs = nowTJC.TJAs.ToArray();
                     SetTJCToView(false);
                 }
+
                 isSaved = false;
+                LbTJCCount.Text = nowTJP.TJCs.Count().ToString();
+                LbTJPMapsCount.Text = nowTJP.TJCs.Sum(x => x.TJAs.Count(y => y != null)).ToString();
+                LbTotalPlayTime.Text = ToMinSec(nowTJP.TJCs.Sum(x => x.TotalOggTime()));
+                LbPackSize.Text = (nowTJP.TJCs.Sum(x => (double)x.GetTJAsSize()) / 1024 / 1024).ToString("0.00") + " MB";
+
                 FormTitleChange();
             }
         }
@@ -831,7 +852,7 @@ namespace JiroCourseEditor {
             nowTJP.PackFolderBackColor = ColorInfo.GetColorCode(LbPackColorView.BackColor);
             nowTJP.PackFolderForeColor = ColorInfo.GetColorCode(LbPackColorView.ForeColor);
             isSaved = false;
-            SaveTJPFile();
+            FormTitleChange();
         }
         /// <summary>
         /// TJCフォルダカラー変更
@@ -848,7 +869,7 @@ namespace JiroCourseEditor {
             nowTJP.CourseFolderBackColor = ColorInfo.GetColorCode(LbCourseColorView.BackColor);
             nowTJP.CourseFolderForeColor = ColorInfo.GetColorCode(LbCourseColorView.ForeColor);
             isSaved = false;
-            SaveTJPFile();
+            FormTitleChange();
         }
         /// <summary>
         /// 課題曲フォルダカラー変更
@@ -865,7 +886,7 @@ namespace JiroCourseEditor {
             nowTJP.SongFolderBackColor = ColorInfo.GetColorCode(LbSongColorView.BackColor);
             nowTJP.SongFolderForeColor = ColorInfo.GetColorCode(LbSongColorView.ForeColor);
             isSaved = false;
-            SaveTJPFile();
+            FormTitleChange();
         }
         /// <summary>
         /// 課題曲フォルダ内レベル別フォルダカラー変更
@@ -882,6 +903,7 @@ namespace JiroCourseEditor {
             nowTJP.TJCs[nowTJCindex].LevelBackColor = ColorInfo.GetColorCode(LbLevelColorView.BackColor);
             nowTJP.TJCs[nowTJCindex].LevelForeColor = ColorInfo.GetColorCode(LbLevelColorView.ForeColor);
             isSaved = false;
+            FormTitleChange();
         }
 
         #endregion
@@ -1257,6 +1279,7 @@ namespace JiroCourseEditor {
             if (isZip == DialogResult.Cancel) {
                 return;
             }
+            // エクスポート
             var isExportSuccess = TJP.Export(nowTJP, setting, isZip == DialogResult.Yes);
             if (isExportSuccess) {
                 MessageBox.Show("エクスポートに成功しました");

@@ -1,4 +1,4 @@
-﻿namespace JiroCourseEditor {
+﻿namespace JiroPackEditor {
     partial class AppInfoDialog {
         /// <summary>
         /// Required designer variable.
@@ -56,7 +56,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::JiroCourseEditor.Properties.Resources.miosunaicon;
+            this.pictureBox1.Image = global::JiroPackEditor.Properties.Resources.miosunaicon;
             this.pictureBox1.Location = new System.Drawing.Point(357, 122);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(85, 84);

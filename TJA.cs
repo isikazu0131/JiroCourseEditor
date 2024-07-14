@@ -8,7 +8,7 @@ using NVorbis;
 using UmeboshiLibrary;
 using System.Xml.Serialization;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     /// <summary>
     /// tjaファイルに関するクラス
     /// </summary>

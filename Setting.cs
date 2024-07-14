@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     public class Setting {
 
         /// <summary>
@@ -19,6 +19,12 @@ namespace JiroCourseEditor {
         /// テストプレイのTJCを削除するか
         /// </summary>
         public bool IsTestTJCDelete { get; set; }
+        
+        /// <summary>
+        /// TJD有効時にTJDの中身が両方「なし」だった場合のメッセージを表示するか
+        /// true: 表示する / false: 表示しない
+        /// </summary>
+        public bool IsViewTJDNoneMsg { get; set; }
 
         /// <summary>
         /// コンストラクタ

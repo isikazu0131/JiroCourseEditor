@@ -1,4 +1,4 @@
-﻿namespace JiroCourseEditor {
+﻿namespace JiroPackEditor {
     partial class SelectTJAIndex {
         /// <summary>
         /// Required designer variable.

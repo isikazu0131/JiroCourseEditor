@@ -8,7 +8,7 @@ using System.Security;
 using System.Text;
 using System.Threading;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
 
 	static class FileDrop {
 

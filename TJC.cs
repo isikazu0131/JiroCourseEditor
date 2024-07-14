@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     /// <summary>
     /// TJCを扱うクラス
     /// </summary>
@@ -370,7 +370,7 @@ namespace JiroCourseEditor {
                     List<string> lines = new List<string>();
 
                     // JiroCourseEditorを使って作られた旨のコメント（ｺﾞﾒﾝﾈ!!!!!）
-                    lines.Add($"// This tjc made by \"Jiro Pack Editor {Constants.AppInfo.Version}\"");
+                    lines.Add($"// This tjc made by \"{Constants.AppInfo.Name} {Constants.AppInfo.Version}\"\r\n");
 
                     lines.Add($"TITLE:{this.Name}\r\n" +
                               $"LIFE:{this.Life}\r\n");

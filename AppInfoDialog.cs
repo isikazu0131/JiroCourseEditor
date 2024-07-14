@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     public partial class AppInfoDialog : Form {
         public AppInfoDialog() {
             InitializeComponent();

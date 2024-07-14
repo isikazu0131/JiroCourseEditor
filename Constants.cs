@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     /// <summary>
     /// 定数を扱う総合クラス
     /// </summary>
@@ -23,7 +23,7 @@ namespace JiroCourseEditor {
             /// <summary>
             /// バージョン
             /// </summary>
-            public const string Version = "V1.9.3";
+            public const string Version = "V2.0.0";
 
             public const string GitHubLink = "https://github.com/isikazu0131/JiroCourseEditor";
         }

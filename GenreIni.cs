@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     /// <summary>
     /// Genre.ini関連クラス
     /// </summary>

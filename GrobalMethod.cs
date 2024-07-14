@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     /// <summary>
     /// 共通で使うメソッド群
     /// </summary>

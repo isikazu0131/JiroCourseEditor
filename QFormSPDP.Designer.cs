@@ -1,4 +1,4 @@
-﻿namespace JiroCourseEditor {
+﻿namespace JiroPackEditor {
     partial class QFormSPDP {
         /// <summary>
         /// Required designer variable.

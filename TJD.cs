@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     /// <summary>
     /// 段位さん次郎用設定ファイルフォーマット
     /// </summary>
@@ -39,7 +39,19 @@ namespace JiroCourseEditor {
             try {
                 // 合格条件「なし」のみの条件の場合、メッセージを出力してtjdは作成しない
                 if (!this.PassingConditions.Any(x => x.passingType != PassingType.None)) {
-                    MessageBox.Show($"{courseName}の{this.Name}条件がすべて「なし」に設定されているため、tjdを出力しません");
+
+                    Setting setting = Setting.Read();
+                    if (setting.IsViewTJDNoneMsg == false) {
+                        MessageBoxOnce messageBoxOnce = new MessageBoxOnce();
+                        messageBoxOnce.Text = "確認";
+                        messageBoxOnce.msg = $"{courseName}の{this.Name}条件がすべて「なし」に設定されているため、tjdを出力しません";
+                        messageBoxOnce.ShowDialog();
+                        // 現在の設定を上書き
+                        if (setting.IsViewTJDNoneMsg != messageBoxOnce.FlgNextView) {
+                            setting.IsViewTJDNoneMsg = messageBoxOnce.FlgNextView;
+                            Setting.Write(setting);
+                        }
+                    }
                     return;
                 }
                 string outputTJDPath = Path.Combine(outputFolder, $"{courseName}_{Name}{Constants.Extention.TJD}");

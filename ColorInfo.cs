@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JiroCourseEditor {
+namespace JiroPackEditor {
     public class ColorInfo {
 
         public static string GetColorCode(Color color) {
