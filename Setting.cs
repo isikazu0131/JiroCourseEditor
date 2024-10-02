@@ -27,6 +27,12 @@ namespace JiroPackEditor {
         public bool IsViewTJDNoneMsg { get; set; }
 
         /// <summary>
+        /// TJPの保存成功時のメッセージを表示するか
+        /// true: 表示する / false: 表示しない
+        /// </summary>
+        public bool IsViewSaveMsg { get; set; }
+
+        /// <summary>
         /// コンストラクタ
         /// </summary>
         public Setting() {

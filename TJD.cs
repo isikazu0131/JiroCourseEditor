@@ -149,7 +149,13 @@ namespace JiroPackEditor {
         /// （100%を1とした0～1までの値）
         /// </summary>
         public double Ratio { get; set; }
-        
+
+        /// <summary>
+        /// 閾値・割合のどちらを基準に決めているか
+        /// true: 閾値 / false: 割合
+        /// </summary>
+        public bool IsSelectedByThreshold { get; set; }
+
         public PassingCondition() {
 
         }

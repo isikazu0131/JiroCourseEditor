@@ -23,7 +23,7 @@ namespace JiroPackEditor {
             /// <summary>
             /// バージョン
             /// </summary>
-            public const string Version = "V2.0.0";
+            public const string Version = "V2.0.2";
 
             public const string GitHubLink = "https://github.com/isikazu0131/JiroCourseEditor";
         }

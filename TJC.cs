@@ -167,6 +167,7 @@ namespace JiroPackEditor {
         public static TJC CreateForTJCMJE(bool isSP, int Level) {
             TJC tjc = new TJC();
             tjc.Name = $"Level {Level}";
+            tjc.Number = Level;
             // フォルダカラー変更
             switch (Level) {
                 case 1:

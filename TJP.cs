@@ -238,7 +238,7 @@ namespace JiroPackEditor {
                     TJCs = new List<TJC>()
                 };
 
-                foreach (var i in Enumerable.Range(1, 15)) {
+                foreach (var i in Enumerable.Range(1, 17)) {
                     TJC TJCforMDE = TJC.CreateForTJCMJE(isSP, i);
                     // TJDはDPの場合無効にする
                     TJCforMDE.isTJDEnabled = isSP;

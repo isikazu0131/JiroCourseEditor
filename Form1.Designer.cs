@@ -159,6 +159,7 @@ namespace JiroPackEditor {
             this.label16 = new System.Windows.Forms.Label();
             this.LbNotesCount4 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.RClickMenuTJCDuplicate = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelPack.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -198,13 +199,15 @@ namespace JiroPackEditor {
             // BtCreate
             // 
             this.BtCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtCreate.BackColor = System.Drawing.Color.Red;
+            this.BtCreate.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtCreate.Location = new System.Drawing.Point(1081, 678);
             this.BtCreate.Margin = new System.Windows.Forms.Padding(2);
             this.BtCreate.Name = "BtCreate";
             this.BtCreate.Size = new System.Drawing.Size(92, 36);
             this.BtCreate.TabIndex = 1;
             this.BtCreate.Text = "段位作成";
-            this.BtCreate.UseVisualStyleBackColor = true;
+            this.BtCreate.UseVisualStyleBackColor = false;
             this.BtCreate.Click += new System.EventHandler(this.BtCreate_Click);
             // 
             // PanelPack
@@ -551,13 +554,15 @@ namespace JiroPackEditor {
             // BtMJECreate
             // 
             this.BtMJECreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtMJECreate.Location = new System.Drawing.Point(1081, 642);
+            this.BtMJECreate.BackColor = System.Drawing.Color.Aqua;
+            this.BtMJECreate.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtMJECreate.Location = new System.Drawing.Point(1081, 643);
             this.BtMJECreate.Margin = new System.Windows.Forms.Padding(2);
             this.BtMJECreate.Name = "BtMJECreate";
             this.BtMJECreate.Size = new System.Drawing.Size(92, 32);
             this.BtMJECreate.TabIndex = 4;
             this.BtMJECreate.Text = "みおすな式段位\r\nテンプレート作成";
-            this.BtMJECreate.UseVisualStyleBackColor = true;
+            this.BtMJECreate.UseVisualStyleBackColor = false;
             this.BtMJECreate.Click += new System.EventHandler(this.BtMJECreate_Click);
             // 
             // CmsPack
@@ -601,14 +606,15 @@ namespace JiroPackEditor {
             // CmsCourse
             // 
             this.CmsCourse.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RClickMenuTJCDuplicate,
             this.RClickMenuTJCDelete});
             this.CmsCourse.Name = "CmsPack";
-            this.CmsCourse.Size = new System.Drawing.Size(134, 26);
+            this.CmsCourse.Size = new System.Drawing.Size(181, 70);
             // 
             // RClickMenuTJCDelete
             // 
             this.RClickMenuTJCDelete.Name = "RClickMenuTJCDelete";
-            this.RClickMenuTJCDelete.Size = new System.Drawing.Size(133, 22);
+            this.RClickMenuTJCDelete.Size = new System.Drawing.Size(180, 22);
             this.RClickMenuTJCDelete.Text = "コースの削除";
             this.RClickMenuTJCDelete.Click += new System.EventHandler(this.RClickMenuTJCDelete_Click);
             // 
@@ -1584,6 +1590,13 @@ namespace JiroPackEditor {
             this.LbNotesCount4.Text = "0";
             this.LbNotesCount4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // RClickMenuTJCDuplicate
+            // 
+            this.RClickMenuTJCDuplicate.Name = "RClickMenuTJCDuplicate";
+            this.RClickMenuTJCDuplicate.Size = new System.Drawing.Size(180, 22);
+            this.RClickMenuTJCDuplicate.Text = "コースの複製";
+            this.RClickMenuTJCDuplicate.Click += new System.EventHandler(this.RClickMenuTJCDuplicate_Click);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -1771,6 +1784,7 @@ namespace JiroPackEditor {
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label LbNotesCount4;
         private System.Windows.Forms.ToolStripMenuItem このアプリについての情報ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RClickMenuTJCDuplicate;
     }
 }
 
